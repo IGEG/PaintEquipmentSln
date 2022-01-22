@@ -1,1 +1,12 @@
-﻿<h1>Welcome to new PaintEquipmentShop!!!</h1>
+﻿@model IQueryable<Product>
+
+<h3>Welcome to new PaintEquipmentShop!!!</h3>
+@foreach(Product p in Model)
+{
+<div>
+    <p>Id @p.Id</p>
+    <p><h2>Name @p.Name</h2></p>
+    <p>Description @p.Description</p>
+    <p><h4>Price @p.Price.ToString("c")</h4></p>
+</div>
+}

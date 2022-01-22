@@ -8,6 +8,6 @@ namespace PaintEquipment.Models
         {
             _context = appDbContext;
         }
-        public IQueryable<Product> products => _context.Products;
+        public IQueryable<Product> Products => _context.Products;
     }
 }

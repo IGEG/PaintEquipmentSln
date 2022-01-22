@@ -3,6 +3,6 @@ namespace PaintEquipment.Models
 {
     public interface IAppRepository
     {
-        IQueryable<Product> products { get; }
+        IQueryable<Product> Products { get; }
     }
 }

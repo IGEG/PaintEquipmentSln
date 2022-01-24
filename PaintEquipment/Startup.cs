@@ -34,9 +34,19 @@ namespace PaintEquipment
             app.UseStaticFiles();
             app.UseRouting();
             app.UseEndpoints(endpoints => {
-                endpoints.MapControllerRoute("pagination",
-                    "Products/Page{productPage}",
+                endpoints.MapControllerRoute("catpage",
+                    "{category}/Page{numerPage:int}",
                     new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("page", "Page{numerPage:int}",
+                    new { Controller = "Home", action = "Index", numerPage = 1 });
+
+                endpoints.MapControllerRoute("category", "{category}",
+                    new { Controller = "Home", action = "Index", numerPage = 1 });
+
+                endpoints.MapControllerRoute("pagination",
+                    "Products/Page{numerPage}",
+                    new { Controller = "Home", action = "Index", numerPage = 1 });
                 endpoints.MapDefaultControllerRoute();
             });
             SeedData.EnsurePopulated(app);

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintEquipment", "PaintEquipment\PaintEquipment.csproj", "{C397D7C0-049D-4032-A660-5A712AE6A586}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaintEquipment", "PaintEquipment\PaintEquipment.csproj", "{C397D7C0-049D-4032-A660-5A712AE6A586}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintEquipment.Tests", "PaintEquipment.Tests\PaintEquipment.Tests.csproj", "{FF4BB890-E19A-4D95-B1C8-86A2346A9095}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaintEquipment.Tests", "PaintEquipment.Tests\PaintEquipment.Tests.csproj", "{FF4BB890-E19A-4D95-B1C8-86A2346A9095}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

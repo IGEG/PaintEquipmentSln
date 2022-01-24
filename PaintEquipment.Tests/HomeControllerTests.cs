@@ -21,7 +21,7 @@ namespace PaintEquipment.Tests
             }).AsQueryable<Product>());
             HomeController controller = new HomeController(mock.Object);
 
-            ProductListViewModel result = (controller.Index() as ViewResult).ViewData.Model as ProductListViewModel;
+            ProductListViewModel result = (controller.Index(null) as ViewResult).ViewData.Model as ProductListViewModel;
 
             Product[] products = result.Products.ToArray();
             Assert.True(products.Length == 2);
@@ -44,7 +44,7 @@ namespace PaintEquipment.Tests
             HomeController controller = new HomeController(mock.Object);
             controller.PageSize = 3;
 
-            ProductListViewModel result = (controller.Index(2) as ViewResult).ViewData.Model as ProductListViewModel;
+            ProductListViewModel result = (controller.Index(null, 2) as ViewResult).ViewData.Model as ProductListViewModel;
 
             Product[] productarray = result.Products.ToArray();
             Assert.True(productarray.Length == 3);
@@ -71,7 +71,7 @@ namespace PaintEquipment.Tests
             HomeController controller = new HomeController(mock.Object);
             controller.PageSize = 3;
 
-            ProductListViewModel result = (controller.Index(2) as ViewResult).ViewData.Model as ProductListViewModel;
+            ProductListViewModel result = (controller.Index(null, 2) as ViewResult).ViewData.Model as ProductListViewModel;
 
             // Act
 
@@ -82,6 +82,26 @@ namespace PaintEquipment.Tests
             Assert.Equal(3, pageInfo.QuantityProductOnPage);
             Assert.Equal(5, pageInfo.TotalProduct);
             Assert.Equal(2, pageInfo.TotalPages);
+        }
+
+    
+        [Fact]
+        public void CanCategoryFilters()
+        {
+            Mock<IAppRepository> mock = new Mock<IAppRepository>();
+            mock.Setup(p => p.Products).Returns((new Product[] {
+                new Product {Id = 1, Name = "P1", Category="C1"},
+                new Product {Id = 2, Name = "P2", Category="C2"},
+                new Product {Id = 3, Name = "P3", Category="C3"},
+                new Product {Id = 4, Name = "P4", Category="C1"},
+                new Product {Id = 5, Name = "P5",Category="C2"}
+            }).AsQueryable<Product>());
+            HomeController controller = new HomeController(mock.Object);
+            controller.PageSize = 4;
+            Product [] select =((controller.Index("C1",1)).ViewData.Model as ProductListViewModel).Products.ToArray();
+            Assert.Equal(2, select.Length);
+            Assert.True(select[1].Name == "P4");
+
         }
     }
 }

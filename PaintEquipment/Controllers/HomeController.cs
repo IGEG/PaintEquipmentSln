@@ -14,8 +14,9 @@ namespace PaintEquipment.Controllers
         repository = repo;
         }
        
-        public ViewResult Index(int numerPage = 1) => View(new ProductListViewModel {
-            Products = repository.Products.OrderBy(p => p.Id).Skip((numerPage - 1) * PageSize).Take(PageSize),
+        public ViewResult Index(string category, int numerPage = 1) => View(new ProductListViewModel {
+            Products = repository.Products.Where(p=>category==null||p.Category==category)
+            .OrderBy(p => p.Id).Skip((numerPage - 1) * PageSize).Take(PageSize),
             PageInfo = new PageInfo {
                 CurrentPage = numerPage,
                 QuantityProductOnPage = PageSize,

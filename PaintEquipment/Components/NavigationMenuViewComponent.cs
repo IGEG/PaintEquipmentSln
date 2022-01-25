@@ -11,6 +11,7 @@ namespace PaintEquipment.Components
             appRepository = app;
         }
         public IViewComponentResult Invoke() {
+            ViewBag.SelectedCategory = RouteData?.Values["category"];
             return View(appRepository.Products.Select(x => x.Category).Distinct().OrderBy(x => x));
             }
 

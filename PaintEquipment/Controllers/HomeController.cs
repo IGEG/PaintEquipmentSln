@@ -20,9 +20,11 @@ namespace PaintEquipment.Controllers
             PageInfo = new PageInfo {
                 CurrentPage = numerPage,
                 QuantityProductOnPage = PageSize,
-                TotalProduct = repository.Products.Count()
-            }
-
+                TotalProduct = category==null?
+                repository.Products.Count():
+                repository.Products.Where(p=>p.Category==category).Count()
+            },
+            CurrentCategory=category,
         });
 
     }

@@ -4,7 +4,7 @@ namespace PaintEquipment.Models
 {
     public class Cart
     {
-        public List<CartRow> Rows { get; set; } = new List<CartRow>();
+        public List<CartRow> Rows { get; set; }=new List<CartRow>();
         public void AddRow(Product product, int quantity)
         {
             CartRow row = Rows.Where(p => p.Product.Id == product.Id).FirstOrDefault();

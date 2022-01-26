@@ -38,6 +38,7 @@ namespace PaintEquipment
             app.UseSession();
             app.UseRouting();
             app.UseEndpoints(endpoints => {
+                
                 endpoints.MapControllerRoute("catpage",
                     "{category}/Page{numerPage:int}",
                     new { Controller = "Home", action = "Index" });
@@ -53,6 +54,7 @@ namespace PaintEquipment
                     new { Controller = "Home", action = "Index", numerPage = 1 });
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
+
             });
             SeedData.EnsurePopulated(app);
         }

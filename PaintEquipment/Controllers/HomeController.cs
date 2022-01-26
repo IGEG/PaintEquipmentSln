@@ -22,7 +22,7 @@ namespace PaintEquipment.Controllers
                 QuantityProductOnPage = PageSize,
                 TotalProduct = category==null?
                 repository.Products.Count():
-                repository.Products.Where(p=>p.Category==category).Count()
+                repository.Products.Where(e=>e.Category==category).Count()
             },
             CurrentCategory=category,
         });

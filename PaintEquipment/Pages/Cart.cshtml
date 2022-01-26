@@ -1,6 +1,38 @@
 ﻿@page
+@model CartModel
+@{
+    Layout = "_CartLayout";
+}
 
-
-<div>
-<h4> this is the cart page</h4>
+<h3> Список товара</h3>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Кол-во</th>
+            <th>Шт.</th>
+            <th class="text-right">Цена</th>
+            <th class ="text-right">Сумму</th>
+        </tr>
+    </thead>
+    <tbody>
+      @foreach(var row in Model.Cart.Rows)
+        {
+            <tr>
+                <td class="text-center">@row.Quantity</td>
+                <td class="text-left">@row.Product.Name</td>
+                <td class="text-right">@row.Product.Price.ToString("c")</td>
+                <td class="text-right">@((row.Quantity*row.Product.Price).ToString("c"))</td>
+            </tr>
+        }
+      </tbody>
+      <tfoot>
+          <tr>
+              <td colspan="3" class="text-right">Итого:</td>
+              <td class="text-right">@Model.Cart.GetTotalSum().ToString("c")</td>
+          </tr>
+      </tfoot>
+</table>
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Продолжить покупки</a>
 </div>
+    

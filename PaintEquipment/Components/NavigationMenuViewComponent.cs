@@ -5,7 +5,7 @@ namespace PaintEquipment.Components
 {
     public class NavigationMenuViewComponent : ViewComponent
     {
-        IAppRepository appRepository;
+        private IAppRepository appRepository;
         public NavigationMenuViewComponent(IAppRepository app)
         {
             appRepository = app;

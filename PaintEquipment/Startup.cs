@@ -25,6 +25,9 @@ namespace PaintEquipment
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(opts => opts.UseSqlServer(Configuration["ConnectionStrings:PaintEquipmentConnection"]));
             services.AddScoped<IAppRepository, EFAppRepository>();
+            services.AddRazorPages();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -32,6 +35,7 @@ namespace PaintEquipment
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseSession();
             app.UseRouting();
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllerRoute("catpage",
@@ -48,6 +52,7 @@ namespace PaintEquipment
                     "Products/Page{numerPage}",
                     new { Controller = "Home", action = "Index", numerPage = 1 });
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
             });
             SeedData.EnsurePopulated(app);
         }

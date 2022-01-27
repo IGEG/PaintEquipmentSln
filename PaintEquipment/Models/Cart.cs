@@ -5,7 +5,7 @@ namespace PaintEquipment.Models
     public class Cart
     {
         public List<CartRow> Rows { get; set; }=new List<CartRow>();
-        public void AddRow(Product product, int quantity)
+        public virtual void AddRow(Product product, int quantity)
         {
             CartRow row = Rows.Where(p => p.Product.Id == product.Id).FirstOrDefault();
             if (row == null)
@@ -18,7 +18,7 @@ namespace PaintEquipment.Models
             }
             else row.Quantity += quantity;
         }
-        public void DeleteRow(Product product)
+        public virtual void DeleteRow(Product product)
         {
             Rows.RemoveAll(p => p.Product.Id == product.Id);
         }
@@ -26,7 +26,7 @@ namespace PaintEquipment.Models
         {
             return Rows.Sum(p => p.Product.Price * p.Quantity);
         }
-        public void ClearCart() => Rows.Clear();
+        public virtual void ClearCart() => Rows.Clear();
     
     }
 

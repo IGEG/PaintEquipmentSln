@@ -9,24 +9,23 @@ namespace PaintEquipment.Pages
     public class CartModel : PageModel
     {
         IAppRepository appRepository;
-        public CartModel(IAppRepository app)
+        public CartModel(IAppRepository app, Cart cartService)
         {
             appRepository = app;
+            Cart = cartService;
         }
         public Cart Cart { get; set; }
         public string ReturnUrl { get; set; }
         public void OnGet(string retutnUrl)
         {
             ReturnUrl = retutnUrl ?? "/";
-            Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
+            
         }
-        public IActionResult OnPost(long id, string returnUrl)
+        public IActionResult OnPost(long ID, string returnUrl)
         {
-            Product product = appRepository.Products.FirstOrDefault(x => x.Id == id);
-            Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
+            Product product = appRepository.Products.FirstOrDefault(x=>x.Id==ID);
             Cart.AddRow(product, 1);
-            HttpContext.Session.SetJson("cart", Cart);
-            return RedirectToPage(new { returnUrl = returnUrl });
+            return RedirectToPage(new{returnUrl=returnUrl });
         }
     }
 }

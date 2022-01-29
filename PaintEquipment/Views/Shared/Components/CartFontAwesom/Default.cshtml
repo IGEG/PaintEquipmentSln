@@ -1,0 +1,16 @@
+﻿@model CartAll
+
+<div class="">
+@if (Model.Rows.Count() > 0)
+    {
+        <small class="navbar-text text-white">
+            <b>Корзина:</b>
+            @Model.Rows.Sum(x=>x.Quantity) шт.
+            @Model.GetTotalSum().ToString("c")
+        </small>
+    }
+    <a class="btn btn-sm btn-secondary navbar-brand" asp-page="/Cart" 
+    asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
+<i class="fas fa-shopping-cart"></i>
+</a>
+</div>

@@ -28,7 +28,7 @@ namespace PaintEquipment.Tests
     }).AsQueryable<Product>());
 
             // - create a cart 
-            Cart testCart = new Cart();
+            CartAll testCart = new CartAll();
             testCart.AddRow(p1, 2);
             testCart.AddRow(p2, 1);
 
@@ -51,7 +51,7 @@ namespace PaintEquipment.Tests
         new Product { Id = 1, Name = "P1" }
     }).AsQueryable<Product>());
 
-            Cart testCart = new Cart();
+            CartAll testCart = new CartAll();
 
 
             // Action

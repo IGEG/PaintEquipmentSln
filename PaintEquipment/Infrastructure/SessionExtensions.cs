@@ -14,8 +14,8 @@ namespace PaintEquipment.Infrastructure
 
         public static T GetJson<T>(this ISession session, string key)
         {
-            var sessiondta = session.GetString(key);
-            return sessiondta == null ? default(T) : JsonSerializer.Deserialize<T>(sessiondta);
+            var sessionData = session.GetString(key);
+            return sessionData == null ? default(T) : JsonSerializer.Deserialize<T>(sessionData);
         }
 
     }

@@ -6,12 +6,12 @@ using PaintEquipment.Infrastructure;
 
 namespace PaintEquipment.Models
 {
-    public class SessionCart:Cart
+    public class SessionCart:CartAll
     {
-        public static Cart GetCart(IServiceProvider serviceProvider)
+        public static CartAll GetCart(IServiceProvider serviceProvider)
         {
             ISession session = serviceProvider.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
-            SessionCart cart = session?.GetJson<SessionCart>("Cart") ?? new SessionCart();
+            SessionCart cart = session?.GetJson<SessionCart>("CartAll") ?? new SessionCart();
             cart.Session = session;
             return cart;
         }
@@ -21,18 +21,18 @@ namespace PaintEquipment.Models
         public override void AddRow(Product product, int quantity)
         {
             base.AddRow(product, quantity);
-            Session.SetJson("Cart", this);
+            Session.SetJson("CartAll", this);
         }
         public override void DeleteRow(Product product)
         {
             base.DeleteRow(product);
-            Session.SetJson("Cart", this);
+            Session.SetJson("CartAll", this);
         }
 
         public override void ClearCart()
         {
             base.ClearCart();
-            Session.Remove("Cart");
+            Session.Remove("CartAll");
         }
 
     }

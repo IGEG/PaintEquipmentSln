@@ -14,7 +14,7 @@ namespace PaintEquipment.Tests
         {
             Product p1 = new Product { Id = 1, Name = "Product1" };
             Product p2 = new Product { Id = 2, Name = "Product2" };
-            Cart cart = new Cart();
+            CartAll cart = new CartAll();
             cart.AddRow(p1, 1);
             cart.AddRow(p2, 2);
             cart.AddRow(p2, 8);
@@ -30,7 +30,7 @@ namespace PaintEquipment.Tests
         {
             Product p1 = new Product { Id = 1, Name = "Product1" };
             Product p2 = new Product { Id = 2, Name = "Product2" };
-            Cart cart = new Cart();
+            CartAll cart = new CartAll();
             cart.AddRow(p1, 1);
             cart.AddRow(p2, 2);
             cart.AddRow(p2, 8);
@@ -45,7 +45,7 @@ namespace PaintEquipment.Tests
         {
             Product p1 = new Product { Id = 1, Name = "Product1", Price=100 };
             Product p2 = new Product { Id = 2, Name = "Product2", Price=200 };
-            Cart cart = new Cart();
+            CartAll cart = new CartAll();
             cart.AddRow(p1, 1);
             cart.AddRow(p2, 2);
             
@@ -59,7 +59,7 @@ namespace PaintEquipment.Tests
         {
             Product p1 = new Product { Id = 1, Name = "Product1", Price = 100 };
             Product p2 = new Product { Id = 2, Name = "Product2", Price = 200 };
-            Cart cart = new Cart();
+            CartAll cart = new CartAll();
             cart.AddRow(p1, 1);
             cart.AddRow(p2, 2);
             cart.ClearCart();

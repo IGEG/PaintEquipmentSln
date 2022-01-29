@@ -15,11 +15,13 @@ namespace PaintEquipment
 {
     public class Startup
     {
-       private IConfiguration Configuration { get; set; }
+       
         public Startup(IConfiguration config)
         {
             Configuration = config;
         }
+
+        private IConfiguration Configuration { get; set; }
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
@@ -28,7 +30,7 @@ namespace PaintEquipment
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddSession();
-            services.AddScoped<Cart>(s => SessionCart.GetCart(s));
+            services.AddScoped<CartAll>(s => SessionCart.GetCart(s));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 

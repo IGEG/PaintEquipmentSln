@@ -9,12 +9,12 @@ namespace PaintEquipment.Pages
     public class CartModel : PageModel
     {
         IAppRepository appRepository;
-        public CartModel(IAppRepository app, Cart cartService)
+        public CartModel(IAppRepository app, CartAll cartService)
         {
             appRepository = app;
             Cart = cartService;
         }
-        public Cart Cart { get; set; }
+        public CartAll Cart { get; set; }
         public string ReturnUrl { get; set; }
         public void OnGet(string retutnUrl)
         {
@@ -25,7 +25,12 @@ namespace PaintEquipment.Pages
         {
             Product product = appRepository.Products.FirstOrDefault(x=>x.Id==ID);
             Cart.AddRow(product, 1);
-            return RedirectToPage(new{returnUrl=returnUrl });
+            return RedirectToPage(new {returnUrl=returnUrl });
+        }
+        public IActionResult OnPostRemove(long ID, string returnUrl)
+        {
+            Cart.DeleteRow(Cart.Rows.First(cl => cl.Product.Id == ID).Product);
+            return RedirectToPage(new { returnUrl = returnUrl });
         }
     }
 }

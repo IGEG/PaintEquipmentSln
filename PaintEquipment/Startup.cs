@@ -27,6 +27,7 @@ namespace PaintEquipment
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(opts => opts.UseSqlServer(Configuration["ConnectionStrings:PaintEquipmentConnection"]));
             services.AddScoped<IAppRepository, EFAppRepository>();
+            services.AddScoped<IAppOrder, EFAppOrder>();
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddSession();

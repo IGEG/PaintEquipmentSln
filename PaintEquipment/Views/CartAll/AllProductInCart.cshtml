@@ -1,15 +1,13 @@
-﻿@page
-@model CartModel
+﻿@model CartViewModel
 
-<h2>Your cart</h2>
+<h2>Товары в корзине:</h2>
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th>Quantity</th>
-            <th>Item</th>
-            <th class="text-right">Price</th>
-            <th class="text-right">Subtotal</th>
-            <th></th>
+            <th>Количество</th>
+            <th>шт.</th>
+            <th class="text-right">Цена</th>
+            <th class="text-right">Сумма</th>
         </tr>
     </thead>
     <tbody>
@@ -22,13 +20,13 @@
                     @((line.Quantity * line.Product.Price).ToString("c"))
                 </td>
                 <td class="text-center">
-                    <form asp-page-handler="Remove" method="post">
+                    <form asp-action="DeleteProductFromCart" method="post">
                         <input type="hidden" name="Id"
                                value="@line.Product.Id" />
                         <input type="hidden" name="returnUrl"
                                value="@Model.ReturnUrl" />
                         <button type="submit" class="btn btn-sm btn-danger">
-                            Remove
+                            Удалить
                         </button>
                     </form>
                 </td>
@@ -46,9 +44,9 @@
 </table>
 
 <div class="text-center">
-    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Продолжить покупки</a>
     <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">
-        Checkout
+        Оформить заказ
     </a>
 </div>
 

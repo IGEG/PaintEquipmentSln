@@ -10,20 +10,22 @@ namespace PaintEquipment.Models
         public int OrderId { get; set; }
         [BindNever]
         public ICollection<CartRow> Rows { get; set; }
-        [Required(ErrorMessage ="Введите имя")]
+
+        [Required(ErrorMessage ="Укажите название компании")]
+        public string NameCompany { get; set; }
+
+        [Required(ErrorMessage ="Укажите Имя")]
         public string Name { get; set; }
-        [Required(ErrorMessage ="Введите адрес")]
-        public string Line1 { get; set; }
-        public string Line2 { get; set; }
-        public string Line3 { get; set; }
-        [Required(ErrorMessage = "Введите название города")]
-        public string City { get; set; }
-        [Required(ErrorMessage = "Введите регион страны")]
-        public string State { get; set; }
-        public string Zip { get; set; }
-        [Required(ErrorMessage = "Введите название страны")]
-        public string Country { get; set; }
-        public bool GiftWrap { get; set; }
+
+        [Required(ErrorMessage = "Уакжите номер телефона")]
+        public string Number { get; set; }
+
+        [Required(ErrorMessage = "Введите адрес электронной почты")]
+        public string Email { get; set; }
+
+        public string Adding{ get; set; }
+       
+       
 
 
 

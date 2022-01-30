@@ -29,7 +29,7 @@ namespace PaintEquipment
             services.AddScoped<IAppRepository, EFAppRepository>();
             services.AddScoped<IAppOrder, EFAppOrder>();
             services.AddRazorPages();
-            services.AddDistributedMemoryCache();
+            services.AddMemoryCache();
             services.AddSession();
             services.AddScoped<CartAll>(s => SessionCart.GetCart(s));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\Cart.cshtml" />
-    <Content Remove="Pages\Completed.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -18,8 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Pages\Cart.cshtml" />
-    <None Include="Pages\Completed.cshtml" />
     <None Include="wwwroot\lib\bootstrap\css\bootstrap-grid.css" />
     <None Include="wwwroot\lib\bootstrap\css\bootstrap-grid.css.map" />
     <None Include="wwwroot\lib\bootstrap\css\bootstrap-grid.min.css" />
@@ -149,27 +142,6 @@
     <None Include="wwwroot\lib\bootstrap\scss\_type.scss" />
     <None Include="wwwroot\lib\bootstrap\scss\_utilities.scss" />
     <None Include="wwwroot\lib\bootstrap\scss\_variables.scss" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Watch Remove="Pages\Cart.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Cart.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Pages\Cart.cshtml" />
-    <_ContentIncludedByDefault Remove="Pages\Completed.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Watch Remove="Pages\Completed.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Completed.cshtml" />
   </ItemGroup>
 
 </Project>

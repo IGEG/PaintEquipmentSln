@@ -1,5 +1,6 @@
 ﻿using PaintEquipment.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 namespace PaintEquipment.Controllers
 {
     public class OrderController:Controller
@@ -26,13 +27,17 @@ namespace PaintEquipment.Controllers
             {
                 order.Rows = cart.Rows.ToArray();
                 repository.SaveOrder(order);
-                cart.ClearCart();
-                return RedirectToPage("/Completed", new { orderId = order.OrderId });
+                return RedirectToAction(nameof(Completed));
             }
             else
             {
-                return View();
+                return View(order);
             }
+        }
+        public ViewResult Completed()
+        {
+            cart.ClearCart();
+            return View();
         }
     }
 }

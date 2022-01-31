@@ -10,8 +10,8 @@ using PaintEquipment.Models;
 namespace PaintEquipment.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220130135843_newOrder")]
-    partial class newOrder
+    [Migration("20220130202642_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -71,6 +71,9 @@ namespace PaintEquipment.Migrations
                     b.Property<string>("Number")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Shipped")
+                        .HasColumnType("bit");
 
                     b.HasKey("OrderId");
 

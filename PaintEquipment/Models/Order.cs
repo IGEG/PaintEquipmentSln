@@ -11,6 +11,9 @@ namespace PaintEquipment.Models
         [BindNever]
         public ICollection<CartRow> Rows { get; set; }
 
+        [BindNever]
+        public bool Shipped { get; set; }
+
         [Required(ErrorMessage ="Укажите название компании")]
         public string NameCompany { get; set; }
 

@@ -70,6 +70,9 @@ namespace PaintEquipment.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Shipped")
+                        .HasColumnType("bit");
+
                     b.HasKey("OrderId");
 
                     b.ToTable("Orders");

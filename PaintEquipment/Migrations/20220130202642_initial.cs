@@ -2,37 +2,42 @@
 
 namespace PaintEquipment.Migrations
 {
-    public partial class Orders : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<decimal>(
-                name: "Price",
-                table: "Products",
-                type: "decimal(10,2)",
-                nullable: false,
-                oldClrType: typeof(decimal),
-                oldType: "decimal(8,2)");
-
             migrationBuilder.CreateTable(
                 name: "Orders",
                 columns: table => new
                 {
                     OrderId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Shipped = table.Column<bool>(nullable: false),
+                    NameCompany = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: false),
-                    Line1 = table.Column<string>(nullable: false),
-                    Line2 = table.Column<string>(nullable: true),
-                    Line3 = table.Column<string>(nullable: true),
-                    City = table.Column<string>(nullable: false),
-                    State = table.Column<string>(nullable: false),
-                    Zip = table.Column<string>(nullable: true),
-                    Country = table.Column<string>(nullable: false),
-                    GiftWrap = table.Column<bool>(nullable: false)
+                    Number = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
+                    Adding = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.OrderId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    Category = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -81,13 +86,8 @@ namespace PaintEquipment.Migrations
             migrationBuilder.DropTable(
                 name: "Orders");
 
-            migrationBuilder.AlterColumn<decimal>(
-                name: "Price",
-                table: "Products",
-                type: "decimal(8,2)",
-                nullable: false,
-                oldClrType: typeof(decimal),
-                oldType: "decimal(10,2)");
+            migrationBuilder.DropTable(
+                name: "Products");
         }
     }
 }

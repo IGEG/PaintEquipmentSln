@@ -28,6 +28,22 @@ namespace PaintEquipment.Tests
 
 
         }
+
+        [Fact]
+        public void CanEditProduct()
+        {
+            Mock<IAppRepository> mock = new Mock<IAppRepository>();
+            mock.Setup(p => p.Products).Returns((new Product[]{
+            new Product { Id=1, Name="P1"},
+            new Product { Id = 2, Name = "P2" },
+            new Product { Id = 3, Name = "P3" },
+            }).AsQueryable<Product>());
+            AdminController controller = new AdminController(mock.Object);
+            Product product = GetViewModel<Product>(controller.Edit(2));
+            Assert.Equal(2, product.Id);
+
+        }
+
         private T GetViewModel<T>(IActionResult result) where T : class
         {
             return (result as ViewResult)?.ViewData.Model as T;

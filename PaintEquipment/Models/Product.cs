@@ -15,7 +15,8 @@ namespace PaintEquipment.Models
         public string Description { get; set; }
 
         [Column(TypeName ="decimal(14,2)")]
-        [Required(ErrorMessage = "Укажите стоимость товара")]
+        [Required]
+        [Range(0.01, double.MaxValue,ErrorMessage = "Укажите стоимость товара")]
         public decimal Price { get; set; }
         [Required(ErrorMessage = "Укажите категорию")]
         public string Category { get; set; }

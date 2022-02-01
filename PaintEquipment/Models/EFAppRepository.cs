@@ -29,5 +29,17 @@ namespace PaintEquipment.Models
             }
             _context.SaveChanges();
         }
+
+        public Product DeleteProduct(int ID)
+        {
+            Product product = _context.Products.FirstOrDefault(p => p.Id == ID);
+            if (product != null)
+            {
+                _context.Products.Remove(product);
+                _context.SaveChanges();
+            }
+            return product;
+        }
+       
     }
 }

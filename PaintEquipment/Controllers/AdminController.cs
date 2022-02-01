@@ -27,6 +27,21 @@ namespace PaintEquipment.Controllers
             }
             return View(product);
         }
+        public ViewResult Create() => View("Edit", new Product());
+
+        [HttpPost]
+
+        public IActionResult Delete(int Id)
+        {
+            Product product = repository.DeleteProduct(Id);
+            if (product != null)
+            {
+                TempData["message"] = $"{product.Name} успешно удален!";
+            }
+            return RedirectToAction("Index");
+
+            
+        }
 
     }
 }

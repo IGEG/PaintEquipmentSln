@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using PaintEquipment.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace PaintEquipment
 {
@@ -26,6 +27,8 @@ namespace PaintEquipment
         {
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(opts => opts.UseSqlServer(Configuration["ConnectionStrings:PaintEquipmentConnection"]));
+            services.AddDbContext<AppIdentityDbContext>(opts => opts.UseSqlServer(Configuration["ConnectionStrings:IdentityConnection"]));
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
             services.AddScoped<IAppRepository, EFAppRepository>();
             services.AddScoped<IAppOrder, EFAppOrder>();
             services.AddMemoryCache();
@@ -42,6 +45,8 @@ namespace PaintEquipment
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints => {
                 
                 endpoints.MapControllerRoute("catpage",

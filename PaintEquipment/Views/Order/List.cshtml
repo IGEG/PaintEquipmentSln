@@ -4,50 +4,60 @@
     Layout = "_AdminLayout";
 }
 
-@if(Model.Count()>0)
+@if (Model.Count() > 0)
 {
-<table class="table-bordered table-striped">
-    <tr>
-        <th class="m-1 p-1">Компания</th> 
-        <th class="m-1 p-1">Имя</th>
-        <th class="m-1 p-1">Телефон</th>
-        <th class="m-1 p-1">Email</th>
-        <th class="m-1 p-1">Коментарии к заказу</th>
-        <th colspan="3" class="m-1 p-1">Заказ</th>
-    </tr>
-    @foreach (Order o in Model)
-    {
-
+    <table class="table-bordered table-striped">
         <tr>
-            <td>@o.NameCompany</td>
-            <td>@o.Name</td>
-            <td>@o.Number</td>
-            <td>@o.Email</td>
-            <td>@o.Adding</td>
-            <th>Товар</th>
-            <th>Кол-во (шт)</th>
-            <td>
-                <form asp-action="MarkOrder" method="post" class="m-1 p-1">
-                    <input type="hidden" name="OrderId" value="@o.OrderId" />
-                    <button type="submit" class="btn-sm btn-danger">Оформлен</button>
-                </form>
-            </td>
+            <th class="m-1 p-1">Компания</th>
+            <th class="m-1 p-1">Имя</th>
+            <th class="m-1 p-1">Телефон</th>
+            <th class="m-1 p-1">Email</th>
+            <th class="m-1 p-1">Коментарии к заказу</th>
+            <th colspan="3" class="m-1 p-1">Заказ</th>
         </tr>
-        @foreach (CartRow c in o.Rows)
+        @foreach (Order o in Model)
         {
+
             <tr>
-                <td colspan="5"></td>
-                <td>@c.Product.Name</td>
-                <td>@c.Quantity</td>
-                <td></td>
+                <td>@o.NameCompany</td>
+                <td>@o.Name</td>
+                <td>@o.Number</td>
+                <td>@o.Email</td>
+                <td>@o.Adding</td>
+                <th>Товар</th>
+                <th>Кол-во (шт)</th>
+                <td>
+                    <form asp-action="MarkOrder" method="post" class="m-1 p-1">
+                        <input type="hidden" name="OrderId" value="@o.OrderId" />
+                        <button type="submit" class="btn-sm btn-danger">Оформлен</button>
+                    </form>
+                </td>
             </tr>
+            @foreach (CartRow c in o.Rows)
+            {
+                <tr>
+                    <td colspan="5"></td>
+                    @if (c.Product == null)
+                    {
+                        <td>Товар не найден</td>
+                        <td>0</td>
+                        <td></td>
+                    }
+                    else
+                    {
+                        <td>@c.Product.Name</td>
+                        <td>@c.Quantity</td>
+                        <td></td>
+                    }
+                </tr>
+            }
         }
-    }
-</table>
+    </table>
 }
 else
-{<div class="text-center m-2 p-2">
-    <h4>Нет не отвеченных заказов</h4>
-</div>
+{
+    <div class="text-center m-2 p-2">
+        <h4>Нет не отвеченных заказов</h4>
+    </div>
 }
 

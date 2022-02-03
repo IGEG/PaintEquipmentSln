@@ -39,7 +39,9 @@ namespace PaintEquipment.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId")
+                        .IsUnique()
+                        .HasFilter("[ProductId] IS NOT NULL");
 
                     b.ToTable("CartRow");
                 });
@@ -86,16 +88,19 @@ namespace PaintEquipment.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Category")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(10,2)");
+                        .HasColumnType("decimal(14,2)");
 
                     b.HasKey("Id");
 
@@ -109,8 +114,9 @@ namespace PaintEquipment.Migrations
                         .HasForeignKey("OrderId");
 
                     b.HasOne("PaintEquipment.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId");
+                        .WithOne()
+                        .HasForeignKey("PaintEquipment.Models.CartRow", "ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

@@ -30,10 +30,10 @@ namespace PaintEquipment.Migrations
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    Category = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(14,2)", nullable: false),
+                    Category = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -64,7 +64,7 @@ namespace PaintEquipment.Migrations
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -75,7 +75,9 @@ namespace PaintEquipment.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_CartRow_ProductId",
                 table: "CartRow",
-                column: "ProductId");
+                column: "ProductId",
+                unique: true,
+                filter: "[ProductId] IS NOT NULL");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

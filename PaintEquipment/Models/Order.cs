@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace PaintEquipment.Models
@@ -8,6 +9,7 @@ namespace PaintEquipment.Models
     {
         [BindNever]
         public int OrderId { get; set; }
+
         [BindNever]
         public ICollection<CartRow> Rows { get; set; }
 

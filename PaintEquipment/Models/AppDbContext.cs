@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 
 namespace PaintEquipment.Models
     
@@ -9,5 +11,14 @@ namespace PaintEquipment.Models
         { }
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<CartRow>()
+                .HasOne(p=>p.Product)
+                .WithOne()
+                .OnDelete(DeleteBehavior.Cascade);
+        }
+
     }
 }

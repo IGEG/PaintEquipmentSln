@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace PaintEquipment.Models
 {
     public class CartAll
@@ -33,6 +35,9 @@ namespace PaintEquipment.Models
     public class CartRow
     {
         public int Id { get; set; }
+        
+        public long? ProductId { get; set; }
+        [ForeignKey("ProductId")]
         public Product Product { get; set; }
 
         public int Quantity { get; set; }

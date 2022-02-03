@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using PaintEquipment.Models;
 namespace PaintEquipment.Models
 {
     public class EFAppRepository : IAppRepository
@@ -35,6 +36,7 @@ namespace PaintEquipment.Models
             Product product = _context.Products.FirstOrDefault(p => p.Id == ID);
             if (product != null)
             {
+               
                 _context.Products.Remove(product);
                 _context.SaveChanges();
             }

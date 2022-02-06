@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PaintEquipment.Models;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PaintEquipment.Controllers
 {
+    [Authorize]
     public class AdminController:Controller
     {
         IAppRepository repository;

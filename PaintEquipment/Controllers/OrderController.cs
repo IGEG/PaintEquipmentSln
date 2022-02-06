@@ -1,6 +1,7 @@
 ﻿using PaintEquipment.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 namespace PaintEquipment.Controllers
 {
     public class OrderController:Controller
@@ -13,11 +14,13 @@ namespace PaintEquipment.Controllers
             repository = repoService;
             cart = cartService;
         }
+        [Authorize]
         public ViewResult List()
         {
             return View(repository.Orders.Where(o => !o.Shipped));
         }
         [HttpPost]
+        [Authorize]
         public IActionResult MarkOrder(int ID)
         {
             Order order = repository.Orders.FirstOrDefault(p => p.OrderId == ID);

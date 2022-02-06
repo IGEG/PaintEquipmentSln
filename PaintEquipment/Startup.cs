@@ -68,6 +68,7 @@ namespace PaintEquipment
 
             });
             SeedData.EnsurePopulated(app);
+            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }

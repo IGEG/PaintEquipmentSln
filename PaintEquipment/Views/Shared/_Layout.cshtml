@@ -8,23 +8,44 @@
     <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="bg-dark text-white p-2">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col navbar-brand">PAINT EQUIPMENT</div>
-                <div class="col-6 text-right">
-                    <vc:cart-font-awesom />
-                </div>
+    <div class="bg-dark text-white ">
+        <div class="container-fluid row ">
+            <div class="col d-flex navbar-brand">
+                <h2>ОКРАСОЧНОЕ ОБОРУДОВАНИЕ</h2>
+                <i class="fas fa-paint-roller"></i>
+            </div>
+            <div class="col text-right m-1 p-1">
+                <vc:cart-font-awesom />
+            </div>
+            <div class ="col">
+                <form class="d-flex  p-1 m-1">
+                    <input class="form-control p-1 m-1" type="search" placeholder="Найти" label="Найти">
+                    <button class="btn btn-outline-secondary m-1 p-1" type="submit">Поиск</button>
+                </form>
             </div>
         </div>
     </div>
+
     <div class="row m-1 p-1">
         <div id="categories" class="col-3">
-            <vc:navigation-menu />
+            <vc:navigation-menu/>
         </div>
         <div class="col-9">
             @RenderBody()
         </div>
+
+    </div>
+    <div class="container-fluid">
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Начальная страница</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Новости</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Контакты</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Статьи</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">О нас</a></li>
+            </ul>
+            <p class="text-center text-muted">&copy; 2022 Окрасочное оборудование</p>
+        </footer>
     </div>
 </body>
 </html>

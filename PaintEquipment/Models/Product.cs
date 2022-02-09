@@ -20,6 +20,7 @@ namespace PaintEquipment.Models
         public decimal Price { get; set; }
         [Required(ErrorMessage = "Укажите категорию")]
         public string Category { get; set; }
+        public string Img { get; set; }
 
     }
 }

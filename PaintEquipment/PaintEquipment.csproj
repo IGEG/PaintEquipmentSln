@@ -146,4 +146,8 @@
     <None Include="wwwroot\lib\bootstrap\scss\_variables.scss" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\Img\" />
+  </ItemGroup>
+
 </Project>

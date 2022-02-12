@@ -57,7 +57,7 @@ a.shop{
 .caption{
 	width: 100%;
 	position: absolute;
-	top: 42%;
+	top: 30%;
 	left: 0%;
 	text-align:center;
 }
@@ -150,7 +150,7 @@ a.morebtn{
 	padding:1em 2.3em;
 	font-size:0.875em;
 	text-transform:uppercase;
-	color:#fcff19;
+	color:#fff;
 	display:inline-block;
 	margin:0 auto;
 	border-radius:7px;
@@ -161,21 +161,22 @@ a.morebtn{
 	-ms-transition:0.5s all ease;
 }
 a.morebtn:hover{
-	background:#fcff19;
+	background:#bababa;
 	color:#000;
 }
 /*--categories--*/
 .categories{
-	background:url(../images/cate.jpg) no-repeat;
+	background:url(../Img/background/cateegories-font-2.jpg) no-repeat;
 	background-size:cover;
 	min-height:600px;
 	text-align:center;
-	padding:5em 0; 
+	padding:5em 0em 5em 5em; 
 }
 .categories h3,.bikes h3{
 	 color:#000;
 	 font-size:2em;
 	 font-weight:600;
+	 margin:2em 2em 2em 2em;
 }
 .bikes h3{
 	text-align:center;
@@ -184,47 +185,52 @@ a.morebtn:hover{
 	 margin-top:4em;
 }
 .cate-grid{	
-	padding:10em 0 0 0; 
-	min-height:290px;
+	padding:0 0 0 0; 
+	min-height:350px;
 	background-size: 100%;
-	margin:0 12px;
-	width:31%;
+
+	
 }
-.grid1{
-	background:url(../images/c1.jpg) no-repeat;
+.grid1 {
+	background: url(../Img/background/cateegories-font-1.jpg) no-repeat;
+
+	
 }
-.grid2{
-	background:url(../images/c2.jpg) no-repeat;
+.grid2 {
+	background: url(../Img/background/cateegories-font-3.jpg) no-repeat;
+	
 }
 .grid3{
-	background:url(../images/c3.jpg) no-repeat;
+	background:url(../Img/background/cateegories-font2.jpg) no-repeat;
+	
 }
 .cate-grid h4{
-	color:#fcff19;
+	color:#333333;
 	font-size:1.1em;
 	font-weight:600;
 	letter-spacing:1px;
-	margin-bottom:6px;
+	margin-bottom:2px;
+	padding:50px;
 } 
 .cate-grid p{
-	color:#fff;
+	color:#707070;
 	font-size:1.3em;
 	font-weight:200;
 }
 a.store{
-	color:#fff;
+	color:#000;
 	font-size:0.9em;
-	border:3px solid #fff;
+	border:3px solid #000;
 	border-radius:7px;
 	font-weight:500;
 	display:inline-block;
 	padding:0.7em 1.4em;
 	margin-top:1.5em;
 }
-a.store:hover{
-	border:2px solid #fcff19;
-	color:#fcff19;
-}
+	a.store:hover {
+		border: 2px solid #caca;
+		color: #caca;
+	}
 /*--bikes--*/
 .bikes{
 	padding:6em 0 2em 0;

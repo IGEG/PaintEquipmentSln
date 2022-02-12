@@ -33,7 +33,7 @@ Layout=null;
 <!---- start-smoth-scrolling---->
 </head>
 <body>
-<!--banner-->
+<!--основной банер-->
 <script src="~/lib/js/responsiveslides.min.js"></script>
 <script>  
     $(function () {
@@ -50,9 +50,9 @@ Layout=null;
 	  <div class="container">
 			 <div class="header">
 				  <div class="top-nav">										 
-						@*<label class="mobile_menu" for="mobile_menu">
+						<label class="mobile_menu" for="mobile_menu">
 						<span>Меню</span>
-						</label>*@
+						</label>
 						<input id="mobile_menu" type="checkbox">
 					   <ul class="nav">
 						  <li class="dropdown1"><a href="#">ОБОРУДОВАНИЕ</a>
@@ -101,35 +101,35 @@ Layout=null;
 								<li><h1> ОКРАСОЧНОЕ ОБОРУДОВАНИЕ<br/> С ЭЛЕКТРИЧЕСИКМ ПРИВОДОМ</h1></li>	
 						  </ul>
 						  <p> Только  качественное окрасочное оборуование <br/> все остальное - <span>компромис!</span></p>
-						  <a class="morebtn" href="bicycles.html">ПЕРЕЙТИ В МАГАЗИН</a>
+						  <a class="morebtn" href="#">ПЕРЕЙТИ В МАГАЗИН</a>
 					  </div>
 				  </div>
 	 </div>
 	 <div class="dwn">
-		<a class="scroll" href="#cate"><img src="~/lib/images/scroll.png" alt=""/></a>
+		<a class="scroll" href="#"><img style="max-height:100px; max-width:100px;" src="~/lib/Img/gear.png" alt="вниз"/></a>
 	 </div>				 
 </div>
-<!--/banner-->
+<!--категории-->
 <div id="cate" class="categories">
 	 <div class="container">
 		 <h3>КАТЕГОРИИ</h3>
-		 <div class="categorie-grids">
-			 <a href="#"><div class="col-md-4 cate-grid grid1">
-				 <h4>FIXED / SINGLE SPEED</h4>
-				 <p>Are you ready for the 27.5 Revloution ?</p>
+		 <div class="row cate-grid"  >
+			 <div class="col-md-4 cate-grid grid1">
+				 <h4>ОБОРУДОВАНИЕ</h4>
+				 <p>Профессиональное окрасочное   <br/> оборудование</p>
 				 <a class="store" href="#">ПЕРЕЙТИ К ПОКУПКАМ</a>
-			 </div></a>
-			 <a href="#"><div class="col-md-4 cate-grid grid2">
-				 <h4>PREMIMUM SERIES</h4>
-				 <p>Exclusive Bike Components</p>
-				 <a class="store" href="#">GO TO STORE</a>
-			 </div></a>
-			 <a href="#"><div class="col-md-4 cate-grid grid3">
-				 <h4>CITY BIKES</h4>
-				 <p>Street Playground</p>
-				 <a class="store" href="#">GO TO STORE</a>
-			 </div></a>
-			 <div class="clearfix"></div>
+			 </div>
+			<div class="col-md-4 cate-grid grid2">
+				 <h4>КОМПЛЕКТУЮЩИЕ</h4>
+				 <p>Аксессуары для всех видов<br/> окрасочных работ</p>
+				 <a class="store" href="#">ПЕРЕЙТИ К ПОКУПКАМ</a>
+			 </div>
+			<div class="col-md-4 cate-grid grid3">
+				 <h4>ЗИП</h4>
+				 <p>Запасные части<br/> высокого качества</p>
+				 <a class="store" href="#">ПЕРЕЙТИ К ПОКУПКАМ</a>
+			 </div>
+			 
 		 </div>
 	 </div>
 </div>

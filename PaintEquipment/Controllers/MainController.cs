@@ -12,6 +12,6 @@ namespace PaintEquipment.Controllers
             AppDbContext = appDb;
 
         }
-        public ViewResult Index() =>  View("Hello World");
+        public ViewResult Index() =>  View();
     }
 }

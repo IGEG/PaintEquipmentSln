@@ -46,7 +46,8 @@ a.shop{
 	margin:9px 0 0 30px;
 }
 .banner-bg{
-	position:relative ;
+	position:relative;
+
 	
 }
 .dwn{
@@ -62,7 +63,7 @@ a.shop{
 	text-align:center;
 }
 .header{
-	margin-top:2.3em;
+	margin-top:0em;
 }
 .logo{
 	float:left;
@@ -158,7 +159,7 @@ a.morebtn{
 	-webkit-transition:0.5s all ease;
 	-moz-transition:0.5s all ease;
 	-o-transition:0.5s all ease;
-	-ms-transition:0.5s all ease;
+	
 }
 a.morebtn:hover{
 	background:#bababa;
@@ -233,10 +234,10 @@ a.store{
 	}
 /*--bikes--*/
 .bikes{
-	padding:6em 0 2em 0;
+	padding:2em 0 2em 0;
 }
 .bikes-grids{
-	margin-top:8em;
+	margin-top:1em;
 }
 #flexiselDemo1, #flexiselDemo2, #flexiselDemo3 {
 	display: none;
@@ -271,62 +272,51 @@ a.store{
   margin: 0 5%;
 }
 .bike-info{
-	padding:0 20px;
-	margin-top:4em;
+	padding:0 10px;
+	margin-top:5em;
 }
 .model{
 	float:left;
-	width:50%;
-	text-align:left;
+	width:100%;
+	text-align:center;
 }
-.model h4{
-	color:#000;
-	font-size:1.1em;
-	font-weight:600;
+
+
+.model-info {
+	position:relative;
+	margin-top:20px;
+    float: right;
+	width: 50%;
+
 }
-.model h4 span{
-	color:#000;
-	display:block;
-	margin-top:5px;
-	font-size:0.95em;
-	font-weight:300;
-}
-.model-info{
-	float:left;
-	width:50%;
-}
-select{
-	padding:10px 2.5em 10px 0.5em;
-	border-radius:5px;
-	margin-right:5px;
-	outline:none;
-	cursor:pointer;
-}
-.model-info a{
-	color:#fff;
-	font-size:0.9em;
-	font-weight:500;
-	padding:1em 2.5em;
-	border-radius:5px;
-	background:#b7b7b7;
+
+.model-info a {
+	color: #000;
+	font-size: 0.9em;
+	font-weight: 500;
+	padding: 1em 2.5em;
+	border-radius: 5px;
+	background: #b7b7b7;
+	
 }
 .model-info a:hover{
-	background:#000;
-	color:#fcff19;
+	background:#fff;
+	color:#000;
 }
-.viw{
-	  position: absolute;
-  background: #000;
-  padding: 1.3em 2.5em;
-  font-size: 1em;
-  margin-right: 1em;
-  font-weight: 500;
-  top: 33%;
-  left: 34%;
-  display: none;
+.viw {
+	position: absolute;
+	background: #baba;
+	padding: 1.3em 2.5em;
+	font-size: 1em;
+	margin-right: 1em;
+	font-weight: 500;
+	top: 33%;
+	left: 34%;
+	display: none;
+	border-radius: 8px;
 }
 .viw a{
-	color:yellow;
+	color:#000;
 }
 .nbs-flexisel-item{
 	position:relative;
@@ -336,7 +326,7 @@ select{
 }
 /*--contact--*/
 .contact{
-	background:url(../images/contact.jpg) no-repeat 0px 0px;
+	background:url(../Img/background/background.jpg) no-repeat 0px 0px;
 	min-height:560px;
 	background-size:cover;
 	text-align:center;
@@ -384,8 +374,8 @@ select{
 	height:170px;
 }
 .contact form input[type="submit"] {
-  color: #fff;
-  background: #b7b7b7;
+  color: #000;
+  background: #707070;
   font-size: 1em;
   font-weight: 400;
   text-decoration: none;
@@ -402,12 +392,12 @@ select{
   -ms-transition: 0.5s all ease;
 }
 .contact form input[type="submit"]:hover{
-	background:#000;
-	color:#fcff19;
+	background:#fff;
+	color:#000;
 }
 /*--footer--*/
 .footer{
-	background:#fcff19;
+	background:#baba;
 	padding:1.5em;
 }
 .logo2{
@@ -1577,7 +1567,7 @@ select {
   padding: 0.4em 2em;
 }
 .bikes-grids {
-  margin-top: 5em;
+  margin-top: 1em;
 }
 .contact p {
   font-size: 1.1em;
@@ -1717,7 +1707,7 @@ a.store {
   font-size: 1.4em;
 }
 .bikes-grids {
-  margin-top: 4em;
+  margin-top: 1em;
 }
 .contact p {
   font-size: 0.95em;
@@ -2105,7 +2095,7 @@ a.morebtn {
 	padding:2em 0 0 0;
 }
 .bikes-grids {
-  margin-top: 2.5em;
+  margin-top: 1em;
 }
 .contact h3{
 	margin-bottom:0.3em;

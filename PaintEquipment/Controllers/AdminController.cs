@@ -9,10 +9,15 @@ namespace PaintEquipment.Controllers
     public class AdminController:Controller
     {
         IAppRepository repository;
-        public AdminController(IAppRepository repo)
+        IAppRequest request;
+      
+        public AdminController(IAppRepository repo, IAppRequest req)
         {
             repository = repo;
+            request=req;
         }
+
+        //products
         public ViewResult Index() => View(repository.Products);
 
         public ViewResult Edit(int ID) => View(repository.Products.FirstOrDefault(p => p.Id == ID));
@@ -44,6 +49,18 @@ namespace PaintEquipment.Controllers
 
             
         }
+        //request from main page
 
+        public ViewResult ListRequest() => View(request.Requests);
+
+        [HttpPost]
+        public IActionResult DeleteRequests(int ID)
+        {
+                request.DeleteRequest(ID);
+           
+            return RedirectToAction(nameof(ListRequest));
+        }
+      
+       
     }
 }

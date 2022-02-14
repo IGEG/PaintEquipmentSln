@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Request
+@{
 Layout=null;
 }
 <!DOCTYPE html>
@@ -251,12 +252,12 @@ Layout=null;
 		<h3>ОБРАТНАЯ СВЯЗЬ</h3>
 		<p>ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ФОРМУ НИЖЕ</p>
 		<div asp-validation-summary="All" class="text-danger"></div>
-		<form>
-			 <input class="user" type="text" placeholder="НАЗВАНИЕ КОМПАНИИ" required=""><br>
-			 <input class="user" type="text" placeholder="Имя" required=""><br>
-			 <input class="user" type="text" placeholder="USER@DOMAIN.RU" required=""><br>
-			 <input class="user" type="text" placeholder="Телефон" required=""><br>
-			 <textarea placeholder="Сообщение"></textarea>
+		<form asp-controller="Main" asp-action="SaveRequst" method="post">
+			 <input class="user" type="text" placeholder="НАЗВАНИЕ КОМПАНИИ" asp-for="Company"><br>
+			 <input class="user" type="text" placeholder="Имя" asp-for="Name"><br>
+			 <input class="user" type="text" placeholder="USER@DOMAIN.RU" asp-for="Email"><br>
+			 <input class="user" type="text" placeholder="Телефон" asp-for="Number"><br>
+			 <textarea placeholder="Сообщение" asp-for="Desc"></textarea>
 			 <input type="submit" value="ОТПРАВИТЬ">
 		</form>
 	</div>

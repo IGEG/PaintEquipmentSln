@@ -3,15 +3,29 @@ using PaintEquipment.Models;
 
 namespace PaintEquipment.Controllers
 {
-    public class MainController:Controller
+    public class MainController : Controller
     {
-        AppDbContext AppDbContext;
 
-        public MainController(AppDbContext appDb)
+        IAppRequest request;
+        public MainController(IAppRequest req)
         {
-            AppDbContext = appDb;
-
+            request = req;
         }
-        public ViewResult Index() =>  View();
+        public ViewResult Index() => View();
+
+        [HttpPost]
+        public IActionResult SaveRequst(Request req)
+        {
+            if (ModelState.IsValid)
+            {
+                request.SaveRequest(req);
+                return RedirectToAction(nameof(CompletedRequest));
+            }
+            else
+            {
+                return View("Index");
+            }
+        }
+        public ViewResult CompletedRequest() => View();
     }
 }

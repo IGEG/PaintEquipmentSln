@@ -31,6 +31,7 @@ namespace PaintEquipment
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
             services.AddScoped<IAppRepository, EFAppRepository>();
             services.AddScoped<IAppOrder, EFAppOrder>();
+            services.AddScoped<IAppRequest, EFAppRequest>();
             services.AddMemoryCache();
             services.AddSession();
             services.AddScoped<CartAll>(s => SessionCart.GetCart(s));

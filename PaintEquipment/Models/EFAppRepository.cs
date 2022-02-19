@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using PaintEquipment.Models;
 namespace PaintEquipment.Models
 {
@@ -9,7 +10,7 @@ namespace PaintEquipment.Models
         {
             _context = appDbContext;
         }
-        public IQueryable<Product> Products => _context.Products;
+        public IQueryable<Product> Products => _context.Products.Include(c=>c.Category);
 
         public void SaveProduct(Product product)
         {
@@ -24,7 +25,7 @@ namespace PaintEquipment.Models
                 {
                     editproduct.Name = product.Name;
                     editproduct.Description = product.Description;
-                    editproduct.Category = product.Category;
+                    editproduct.CategoryId = product.CategoryId;
                     editproduct.Price = product.Price;
                 }
             }

@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PaintEquipment.Models;
 
-namespace PaintEquipment.Migrations.AppIdentityDb
+namespace PaintEquipment.Migrations
 {
     [DbContext(typeof(AppIdentityDbContext))]
-    [Migration("20220203174937_ini")]
-    partial class ini
+    [Migration("20220215200115_inint")]
+    partial class inint
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

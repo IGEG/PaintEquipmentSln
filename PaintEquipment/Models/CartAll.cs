@@ -26,7 +26,8 @@ namespace PaintEquipment.Models
         }
         public decimal GetTotalSum()
         {
-            return Rows.Sum(p => p.Product.Price * p.Quantity);
+            // return Rows.Sum(p => p.Product.Price * p.Quantity);
+            return 0;
         }
         public virtual void ClearCart() => Rows.Clear();
     

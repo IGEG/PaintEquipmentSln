@@ -8,14 +8,16 @@
     <tr>
         <th class="text-right">№</th>
         <th>Наименование</th>
-        <th class="text-right">Цена:</th>
+        <th class="text-right">Категория</th>
         <th class="text-center">Действия</th>
         @foreach (var product in Model)
         {
         <tr>
             <td class="text-right">@product.Id</td>
             <td>@product.Name</td>
-            <td class="text-right">@product.Price.ToString("c")</td>
+            <td>@product.Category.Name</td>
+           @* <td class="text-right">@product.Price.ToString("c")</td>*@
+           @* <td class="text-right">0</td>*@
             <td class="text-center">
                 <form asp-action="Delete" method="post">
                     <a asp-action="Edit" class="btn btn-sm btn-warning" asp-route-Id="@product.Id">

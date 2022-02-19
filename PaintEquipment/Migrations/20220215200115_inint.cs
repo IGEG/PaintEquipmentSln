@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace PaintEquipment.Migrations.AppIdentityDb
+namespace PaintEquipment.Migrations
 {
-    public partial class ini : Migration
+    public partial class inint : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

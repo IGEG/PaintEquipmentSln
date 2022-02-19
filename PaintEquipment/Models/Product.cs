@@ -18,8 +18,12 @@ namespace PaintEquipment.Models
         [Required]
         [Range(0.01, double.MaxValue,ErrorMessage = "Укажите стоимость товара")]
         public decimal Price { get; set; }
+
+        public int? CategoryId { get; set; }
+
         [Required(ErrorMessage = "Укажите категорию")]
-        public string Category { get; set; }
+       
+        public Category Category { get; set; }
         public string Img { get; set; }
 
     }

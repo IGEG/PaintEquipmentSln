@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Category>
+@{
+    Layout = "_AdminLayout";
+    ViewBag.Title = "КАТЕГОРИИ ТОВАРОВ";
+}
+
+<table class="table table-striped table-bordered table-sm">
+    <tr>
+        <th class="text-center">№</th>
+        <th>Название</th>
+        <th class="text-center">Описание</th>
+        </tr>
+        @foreach (var category  in Model)
+        {
+        <tr>
+            <td class="text-center">@category.Id</td>
+            <td>@category.Name</td>
+            <td>@category.Desc</td>
+            <td class="text-center">
+                <form asp-action="DeleteCategory" method="post">
+                    <a asp-action="EditCategory" class="btn btn-sm btn-warning" asp-route-Id="@category.Id">
+                        Изменить
+                    </a>
+                    <input type="hidden" name="Id" value="@category.Id" />
+                    <button type="submit" class="btn btn-danger btn-sm">
+                        Удалить
+                    </button>
+                </form>
+            </td>
+        </tr>
+        }
+</table>
+<div class="text-center">
+    <a asp-action="CreateCategory" class="btn btn-primary">Создать новую категорию</a>
+</div>

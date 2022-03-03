@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace PaintEquipment.Migrations.AppDb
+namespace PaintEquipment.Migrations
 {
     public partial class initial : Migration
     {
@@ -62,6 +62,7 @@ namespace PaintEquipment.Migrations.AppDb
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: false),
+                    URLadress = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: false),
                     Price = table.Column<decimal>(type: "decimal(14,2)", nullable: false),
                     CategoryId = table.Column<int>(nullable: false),
@@ -102,7 +103,7 @@ namespace PaintEquipment.Migrations.AppDb
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

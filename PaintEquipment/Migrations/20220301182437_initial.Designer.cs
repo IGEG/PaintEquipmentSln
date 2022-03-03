@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PaintEquipment.Models;
 
-namespace PaintEquipment.Migrations.AppDb
+namespace PaintEquipment.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220301182437_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,6 +124,9 @@ namespace PaintEquipment.Migrations.AppDb
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(14,2)");
+
+                    b.Property<string>("URLadress")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

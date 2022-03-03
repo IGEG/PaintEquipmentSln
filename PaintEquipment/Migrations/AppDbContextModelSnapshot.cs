@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PaintEquipment.Models;
 
-namespace PaintEquipment.Migrations.AppDb
+namespace PaintEquipment.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220216164214_intiti")]
-    partial class intiti
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,14 +120,15 @@ namespace PaintEquipment.Migrations.AppDb
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal?>("Price")
-                        .IsRequired()
+                    b.Property<decimal>("Price")
                         .HasColumnType("decimal(14,2)");
+
+                    b.Property<string>("URLadress")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId")
-                        .IsUnique();
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
                 });
@@ -174,15 +173,15 @@ namespace PaintEquipment.Migrations.AppDb
                     b.HasOne("PaintEquipment.Models.Product", "Product")
                         .WithOne()
                         .HasForeignKey("PaintEquipment.Models.CartRow", "ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("PaintEquipment.Models.Product", b =>
                 {
                     b.HasOne("PaintEquipment.Models.Category", "Category")
-                        .WithOne()
-                        .HasForeignKey("PaintEquipment.Models.Product", "CategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

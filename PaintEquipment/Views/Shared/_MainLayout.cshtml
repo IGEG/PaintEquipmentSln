@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Окрасочное оборудования | Комплектующие | ЗИП </title>
+<link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet">
+<link href="~/lib/bootstrap/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (Bootstrap's JavaScript plugins) -->
+<script src="~/lib/js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<link href="~/lib/css/form.css" rel="stylesheet" type="text/css" media="all" />
+<link href="~/lib/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Roboto:500,900,100,300,700,400' rel='stylesheet' type='text/css'>
+<!--webfont-->
+<!-- dropdown -->
+<script src="~/lib/js/jquery.easydropdown.js"></script>
+<link href="~/lib/css/nav.css" rel="stylesheet" type="text/css" media="all"/>
+<script src="~/lib/js/scripts.js" type="text/javascript"></script>
+<!--js-->
+</head>
+<body>
+    <!--header - верхний банер-меню-->
+<div class="banner-bg banner-sec">	
+	  <div class="container">
+			 <div class="header">
+			       <div class="logo">
+						 <a asp-controller="Main" asp-action="Index"><img src="~/lib/Img/gear.png" style="max-height:100px; max-width:100px;" alt="основное меню"/></a>
+				   </div>							 
+				  <div class="top-nav">										 
+						<label class="mobile_menu" for="mobile_menu">
+						<span>Menu</span>
+						</label>
+						<input id="mobile_menu" type="checkbox">
+					  <ul class="nav">
+						  <li class="dropdown1"><a href="#">ОБОРУДОВАНИЕ</a>
+							  <ul class="dropdown2">
+									<li><a asp-controller="home" asp-action="index">Пневматические аппараты</a></li>
+									<li><a asp-controller="home" asp-action="index">Электрические аппараты</a></li>
+									<li><a asp-controller="home" asp-action="index">Бензиновые аппараты</a></li>	
+									<li><a asp-controller="home" asp-action="index">Текстурные распылители</a></li>
+									<li><a asp-controller="home" asp-action="index">Установки для ППУ</a></li>
+									<li><a asp-controller="home" asp-action="index">Нанесение разметки</a></li>
+									<li><a asp-controller="home" asp-action="index">Насосы</a></li>
+									<li><a asp-controller="home" asp-action="index">Ручные окрасочные пистолеты</a></li>
+									<li><a asp-controller="home" asp-action="index">Многокомпонетные установки</a></li>
+									<li><a asp-controller="home" asp-action="index">Нанесение герметика и клея</a></li>
+
+							  </ul>
+						  </li>
+						  <li class="dropdown1"><a href="#">КОМПЛЕКТУЮЩИЕ</a>
+							 <ul class="dropdown2">
+									<li><a asp-controller="home" asp-action="index">Пистолеты-распылители</a></li>
+									<li><a asp-controller="home" asp-action="index">Мешалки</a></li>
+									<li><a asp-controller="home" asp-action="index">Окрасочные рукава</a></li>	
+									<li><a asp-controller="home" asp-action="index">Сопла</a></li>
+									<li><a asp-controller="home" asp-action="index">Второй окрасочный пост</a></li>
+									<li><a asp-controller="home" asp-action="index">Удлинители</a></li>
+									<li><a asp-controller="home" asp-action="index">Масло TSL</a></li>
+									<li><a asp-controller="home" asp-action="index">Краны</a></li>
+							  </ul>
+						 </li>      
+						 <li class="dropdown1"><a href="#">ЗАПЧАСТИ</a></li>  
+						 <li class="dropdown1"><a href="#">НОВОСТИ</a></li>
+						 <li class="dropdown1"><a href="#">КОНТАКТЫ</a></li>
+						  <div class="col text-right m-1 p-1"><vc:cart-font-awesom /></div>
+					  </ul>
+				 </div>
+				 <div class="clearfix"></div>
+			 </div>
+	  </div> 				 
+</div>
+<!--/header - верхний банер-меню-->
+    <div>
+        @RenderBody()
+    </div>
+<!--footer - нижнее меню---->
+<div class="footer">
+	 <div class="container wrap">
+		<div class="logo2">
+			 <a href="#"><img style="max-height:100px; max-width:100px;" src="~/lib/Img/gear.png" alt="основное меню"/></a>
+			    <p class="text-center text-muted">&copy; 2022 Окрасочное оборудование, Designe by IGEG</p>
+		</div>
+		<div class="ftr-menu">
+			 <ul>
+				 <li><a href="#">ОБОРУДОВАНИЕ</a></li>
+				 <li><a href="#">КОМПЛЕКТУЮЩИЕ</a></li>
+				 <li><a href="#">АКСЕССУАРЫ</a></li>
+				 <li><a href="#">ЗАПЧАСТИ</a></li>
+			 </ul>
+		</div>
+		<div class="clearfix"></div>
+	 </div>
+</div>
+<!--footer - нижнее меню-->
+</body>
+</html>

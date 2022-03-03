@@ -1,0 +1,32 @@
+﻿@model Product
+@{Layout="_MainLayout";}
+<div class="parts">
+    <div class="container">
+        <h2>Оборудование</h2>
+        <div class="bike-parts-sec">
+            <div class="bike-parts acces">
+                <div class="top">
+                    <ul>
+                        <li><a asp-controller="Main" asp-action="index">Главная страница</a></li>
+                        <li><a asp-controller="Main" asp-action="index"> / </a></li>
+                        <li><a asp-controller="Category" asp-action="index">Категории</a></li>
+                        <li><a asp-controller="Category" asp-action="index"> / </a></li>
+                        <li><a href="~/Category/Product/@Model.URLadress">@Model.Name</a></li>
+                    </ul>
+                </div>
+                <div> Hello @Model.Name
+
+                </div>
+            </div>
+            <div class="rsidebar span_1_of_left">
+                <section class="sky-form">
+                    <div class="product_right">
+                        <h3 class="m_2">КАТЕГОРИИ</h3>
+                        <vc:navigation-menu />
+                    </div>
+                </section>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

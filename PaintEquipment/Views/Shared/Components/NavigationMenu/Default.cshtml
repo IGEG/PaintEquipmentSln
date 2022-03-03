@@ -1,15 +1,16 @@
 ﻿@model IEnumerable<Category>
 <div class="d-grid gap-2">
 <a class="btn  btn-block btn-outline-secondary" asp-action="Index" 
-asp-controller="Home" asp-route-category="">
-    HOME
+asp-controller="Category" asp-route-category="">
+   Основное меню
 </a>
 @foreach  (Category category in Model){
 <a class="btn btn-block @(category.Name == ViewBag.SelectedCategory ? "btn-primary" : "btn-outline-secondary")"
-asp-action="index" asp-controller="Home"
+asp-action="index" asp-controller="Category"
 asp-route-category="@category.Name"
 asp-route-numberPage="1">
 @category.Name
 </a>
 }
 </div>
+

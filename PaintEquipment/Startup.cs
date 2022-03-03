@@ -55,6 +55,9 @@ namespace PaintEquipment
                     "{category}/Page{numerPage:int}",
                     new { Controller = "Home", action = "Index" });
 
+                endpoints.MapControllerRoute("Product", "Category/Product/{URLadress?}",
+                    new { Controller = "Category", action = "Product" });
+
                 endpoints.MapControllerRoute("page", "Page{numerPage:int}",
                     new { Controller = "Home", action = "Index", numerPage = 1 });
 

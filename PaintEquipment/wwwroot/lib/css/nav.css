@@ -45,20 +45,21 @@ li.dropdown1:hover{
 }
 /* Link Style */
 .nav > li > a {
-   padding: 0.5em 1em 1em 1em;
-  display: block;
-  color: #fff;
-  margin: 0;
-  font-size: 15px;
-  font-weight:500;
-  text-transform: uppercase;
-  border: none;
-  letter-spacing: 1px;
-  border-style: solid;
-  border-color: rgba(255, 255, 255, 0);
-  background: none;
-  border-top-left-radius: 13px;
-  border-top-right-radius: 13px;
+	padding: 0.5em 1em 1em 1em;
+	display: block;
+	color: #000;
+	font-weight: bold;
+	margin: 0;
+	font-size: 15px;
+	font-weight: 500;
+	text-transform: uppercase;
+	border: none;
+	letter-spacing: 1px;
+	border-style: solid;
+	border-color: rgba(255, 255, 255, 0);
+	background: none;
+	border-top-left-radius: 13px;
+	border-top-right-radius: 13px;
 }
 .nav > li:nth-child(1) > a,.nav > li:nth-child(5) > a,.nav > li:nth-child(6) > a,
 .nav > li:nth-child(7) > a{
@@ -70,6 +71,7 @@ li.dropdown1:hover{
 }
 .nav > li:hover > a{
 	  color: #000;	
+
 	border-color:none;
 	background: url(../images/menu-arrow-hover.png) no-repeat 103% 54%;
 }

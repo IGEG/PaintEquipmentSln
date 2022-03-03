@@ -11,6 +11,8 @@ namespace PaintEquipment.Models
         [Required(ErrorMessage = "Введите наименоваание товара")]
         public string Name { get; set; }
 
+        public string URLadress { get; set; }
+
         [Required(ErrorMessage = "Укажите описание товара")]
         public string Description { get; set; }
 

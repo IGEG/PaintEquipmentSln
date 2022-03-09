@@ -10,16 +10,33 @@ namespace PaintEquipment.Models
 
         [Required(ErrorMessage = "Введите наименоваание товара")]
         public string Name { get; set; }
+        
+        [Required(ErrorMessage = "Введите название страницы без пробелов")]
 
         public string URLadress { get; set; }
 
-        [Required(ErrorMessage = "Укажите описание товара")]
-        public string Description { get; set; }
+        [Required(ErrorMessage = "Укажите начальное описание товара")]
+        public string SmallDescription { get; set; }
 
-        [Column(TypeName ="decimal(14,2)")]
-        [Required]
-        [Range(0.01, double.MaxValue,ErrorMessage = "Укажите стоимость товара")]
-        public decimal Price { get; set; }
+        [Required(ErrorMessage = "Укажите полное описание товара")]
+        public string BigDescription { get; set; }
+
+        //производительность
+        public string MaxVolume { get; set; }
+
+     //давление
+        public string MaxPressure { get; set; }
+
+ //вес
+        public string MaxWeight { get; set; }
+//комплектация
+        public string Kit { get; set; }
+
+
+        //[Column(TypeName ="decimal(14,2)")]
+        //[Required]
+        //[Range(0.01, double.MaxValue,ErrorMessage = "Укажите стоимость товара")]
+        //public decimal Price { get; set; }
 
         public int? CategoryId { get; set; }
 

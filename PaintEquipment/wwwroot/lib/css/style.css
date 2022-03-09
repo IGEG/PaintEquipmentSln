@@ -725,18 +725,21 @@ margin-bottom: 2em;
 	font-size:0.9em;
 	text-decoration:none;
 }
-.part-sec{
-	
-	width:100%;
-	margin:0 2%;
-	border-bottom:1.5px solid;
-	padding-bottom:1.5em;
-	text-align:center;
-	position:relative;
+.part-sec {
+	float: left;
+	width: 25%;
+	margin: 0 2%;
+	border-bottom: 1.5px solid;
+	padding-bottom: 1.5em;
+	text-align: center;
+	position: relative;
 }
 .part-sec:hover div a.add-cart{
 	display:block;
 }
+	.part-sec:hover div button.add-cart {
+		display: block;
+	}
 .part-sec img{
 	width:100%;
 	height: 200px;
@@ -752,6 +755,12 @@ margin-bottom: 2em;
 	font-weight:600;
 	margin-bottom:1em;
 }
+	.part-sec button h5 {
+		color: #000;
+		font-size: 1.1em;
+		font-weight: 600;
+		margin-bottom: 1em;
+	}
 .part-sec  h3 {
 		color: #000;
 		font-size: 1.1em;
@@ -765,9 +774,15 @@ margin-bottom: 2em;
 	font-weight:400;
 	margin-top:5px;
 }
+	.part-sec button h5 span {
+		display: block;
+		font-size: 0.85em;
+		font-weight: 400;
+		margin-top: 5px;
+	}
 a.add-cart{
-	background:#000;
-	color:#fcff19;
+	background:#fff;
+	color:#707070;
 	padding:5px 1em;
 	font-size:1em;
 	display:inline-block;
@@ -778,11 +793,12 @@ a.add-cart{
     left: 21%;
 	display:none;
 }
-a.add-cart:hover{
-	
-}
+	a.add-cart:hover {
+		color: #fff;
+		background: #707070;
+	}
 a.qck{
-	background:#969696;
+	background:#707070;
 	color:#fff;
 	padding:5px 1em;
 	font-size:1em;
@@ -791,7 +807,7 @@ a.qck{
 	text-decoration:none;
 }
 a.qck:hover{
-	background:#fcff19;
+	background:#707070;
 	color:#000;
 }
 .parts2,.parts3,.parts4{
@@ -1604,7 +1620,7 @@ select {
   width: 71%;
 }
 .part-sec {
-  width: 100%;
+  width: 25%;
 }
 .part-sec img {
   height: 150px;
@@ -1784,6 +1800,9 @@ a.store {
 .part-sec a h5 {
   font-size: 0.9em;
 }
+	.part-sec button h5 {
+		font-size: 0.9em;
+	}
 a.add-cart {
   left: 17%;
   font-size: 0.8em;
@@ -2180,7 +2199,7 @@ p.desc {
 	font-size: 11px;
 }
 .part-sec {
-  width: 100%;
+  width: 32%;
 }
 .part-sec img {
   height: 130px;
@@ -2193,6 +2212,9 @@ a.qck {
 .part-sec a h5 {
   font-size:0.85em;
 }
+	.part-sec button h5 {
+		font-size: 0.85em;
+	}
 a.add-cart {
   left: 20%;
   font-size: 0.8em;

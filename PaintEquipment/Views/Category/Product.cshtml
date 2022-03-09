@@ -1,5 +1,8 @@
 ﻿@model Product
-@{Layout="_MainLayout";}
+@{
+    Layout = "_MainLayout";
+}
+
 <div class="parts">
     <div class="container">
         <h2>Оборудование</h2>
@@ -11,10 +14,33 @@
                         <li><a asp-controller="Main" asp-action="index"> / </a></li>
                         <li><a asp-controller="Category" asp-action="index">Категории</a></li>
                         <li><a asp-controller="Category" asp-action="index"> / </a></li>
-                        <li><a href="~/Category/Product/@Model.URLadress">@Model.Name</a></li>
+                        <li><a href="~/Category/Product/@Model.Id">@Model.Name</a></li>
                     </ul>
                 </div>
-                <div> Hello @Model.Name
+                <div>
+                    <div>
+                        <img src="@Model.Img" alt="@Model.Name" c style="width: 300px; height= 280px; padding: 10; float:left;" asp-append-version="true" />
+                        <div style="padding:10px;"><h2>@Model.Name</h2></div>
+                        <div style="padding:8px;"> <h6>ЦЕНА:<small>  уточняется при отправке заказа.</small></h6></div>
+                        <div style="padding:8px;"> <h6>НАЛИЧИЕ НА СКЛАДЕ:<small>  есть в наличии. </small></h6></div>
+                        <div style="padding:8px;"> <h6>МИНИМАЛЬНЫЙ ЗАКАЗ:<small>  1 шт.</small></h6></div>
+                        <div style="padding:8px;"> <h6>ДОСТАВКА:<small>  самовывоз, доставка транспортными компаниями.</small></h6></div>
+                        <div style="padding:8px;">
+                            <form id="@Model.Id" asp-action="AddToCart" asp-controller="CartAll" method="post">
+                                <input type="hidden" asp-for="Id" />
+                                <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                                <button type="submit" class="btn btn-outline-secondary btn-lg">в корзину</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div style="padding:15px; float:left;"><h4>Подробное описание Товара:  @Model.Name </h4></div>
+                    <div style="padding:10px; float:left;"><h6>@Model.SmallDescription</h6></div>
+                    <div style="padding:10px; float:left;"><h6>@Model.BigDescription</h6></div>
+                    <div style="padding:10px; float:left;"><h6>Комплектация @Model.Name: @Model.Kit</h6></div>
+                    <div style="padding:10px; float:left;"><h4>Техническое описание: @Model.Name</h4></div>
+                    <div style="padding:10px; "><h6>Макимальная производительность: @Model.MaxVolume</h6></div>
+                    <div style="padding:10px; "><h6>Макимальное давление: @Model.MaxPressure</h6></div>
+                    <div style="padding:10px; "><h6>Вес: @Model.MaxWeight</h6></div>
 
                 </div>
             </div>

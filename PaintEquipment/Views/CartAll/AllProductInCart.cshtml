@@ -4,10 +4,10 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th>Количество</th>
-            <th>шт.</th>
-            <th class="text-right">Цена</th>
-            <th class="text-right">Сумма</th>
+            <th>Количество (шт.)</th>
+            <th>Наименование</th>
+           @* <th class="text-right">Цена</th>
+            <th class="text-right">Сумма</th>*@
         </tr>
     </thead>
     <tbody>
@@ -15,12 +15,12 @@
             <tr>
                 <td class="text-center">@line.Quantity</td>
                 <td class="text-left">@line.Product.Name</td>
-                @*<td class="text-right">@line.Product.Price.ToString("c")</td>*@
-                <td class="text-right">0</td>
-                <td class="text-right">
+               @* @*<td class="text-right">@line.Product.Price.ToString("c")</td>*@
+                @*<td class="text-right">0</td>
+                <td class="text-right">*@
                     @*@((line.Quantity * line.Product.Price).ToString("c"))*@
-                    0
-                </td>
+                   
+             @*   </td>*@
                 <td class="text-center">
                     <form asp-action="DeleteProductFromCart" method="post">
                         <input type="hidden" name="Id"
@@ -35,14 +35,14 @@
             </tr>
         }
     </tbody>
-    <tfoot>
+    @*<tfoot>
         <tr>
             <td colspan="3" class="text-right">Total:</td>
             <td class="text-right">
                 @Model.Cart.GetTotalSum().ToString("c")
             </td>
         </tr>
-    </tfoot>
+    </tfoot>*@
 </table>
 
 <div class="text-center">

@@ -24,9 +24,14 @@ namespace PaintEquipment.Models
                 if (editproduct != null)
                 {
                     editproduct.Name = product.Name;
-                    editproduct.Description = product.Description;
+                    editproduct.SmallDescription = product.SmallDescription;
+                    editproduct.BigDescription = product.BigDescription;
+                    editproduct.MaxPressure = product.MaxPressure;
+                    editproduct.MaxVolume = product.MaxVolume;
+                    editproduct.MaxWeight = product.MaxWeight;
+                    editproduct.Kit = product.Kit;
                     editproduct.CategoryId = product.CategoryId;
-                    editproduct.Price = product.Price;
+                    editproduct.URLadress = product.URLadress;
                 }
             }
             _context.SaveChanges();

@@ -3,13 +3,13 @@
 <div class="">
 @if (Model.Rows.Count() > 0)
     {
-        <small class="navbar-text text-white">
-            <b>Корзина:</b>
+        <small class="navbar-text text-black-50">
+            <b>В корзине:</b>
             @Model.Rows.Sum(x=>x.Quantity) шт.
-            @Model.GetTotalSum().ToString("c")
+            @*@Model.GetTotalSum().ToString("c")*@
         </small>
     }
-    <a class="btn btn-sm btn-secondary navbar-brand" asp-page="/Cart" 
+    <a class="btn btn-sm btn-secondary navbar-brand" asp-controller="CartAll" asp-action="AllProductInCart" 
     asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
 <i class="fas fa-shopping-cart"></i>
 </a>

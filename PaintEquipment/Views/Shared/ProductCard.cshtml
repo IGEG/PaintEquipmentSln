@@ -26,20 +26,24 @@
 
 
     <div class="part-sec">
-        <img src="@Model.Img" alt="@Model.Name" />
+        <img src="@Model.Img" alt="@Model.Name" asp-append-version="true"/>
         <div class="part-info">
-            <a href="#">
+            <a href="~/Category/Product/@Model.URLadress">
                 <h5>
                    @Model.Name
                 </h5>
             </a>
+
             @*переход на страницу с нужным продуктом*@
-             <a class="add-cart" asp-controller="Category" asp-action="Product" asp-route-id="@Model.Id" >Подробнее о товаре</a>
+
+             <a class="add-cart" href="~/Category/Product/@Model.URLadress" >Подробнее о товаре</a>
+           
+             @*отправляем товар в корзину*@
 
             <form id="@Model.Id" asp-action="AddToCart" asp-controller="CartAll" method="post">
                 <input type="hidden" asp-for="Id" />
                 <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
-                <a type="submit" class="qck" href="">В КОРЗИНУ</a>
+                <button type="submit" class="btn btn-outline-secondary">в корзину</button>
             </form>
         </div>
     </div>

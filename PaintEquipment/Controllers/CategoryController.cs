@@ -27,10 +27,11 @@ namespace PaintEquipment.Controllers
             },
             CurrentCategory = category,
         });
-      
-        public ViewResult Product(int ID) 
+
+        public ViewResult Product(string URLadress)
         {
-            Product product = repository.Products.FirstOrDefault(p => p.Id == ID);
+            Product product = repository.Products.FirstOrDefault(p => p.URLadress == URLadress);
+            ViewBag.Title = product.Name;
             return View(product);
         }
     }

@@ -22,6 +22,7 @@ namespace PaintEquipment.Controllers
             return View(new CartViewModel { Cart = _cart, ReturnUrl = returnUrl });
                 
         }
+  
         public RedirectToActionResult AddToCart(int ID, string returnUrl)
         {
             Product product = app.Products.FirstOrDefault(x => x.Id == ID);

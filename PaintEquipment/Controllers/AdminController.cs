@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace PaintEquipment.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AdminController:Controller
     {
         IAppRepository repository;

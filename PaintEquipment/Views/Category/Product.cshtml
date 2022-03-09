@@ -32,27 +32,28 @@
                                 <button type="submit" class="btn btn-outline-secondary btn-lg">в корзину</button>
                             </form>
                         </div>
+                    </div><br>
+                    <div style="padding:15px 25px; float:left;"><h4><b>Товар:</b> @Model.Name </h4></div>
+                    <div style="padding:10px; float:left;"><h6> <b>Описание @Model.Name:</b>@Model.SmallDescription</h6></div>
+                    <div style="padding:10px; float:left;"><h6><b>Преимущества @Model.Name:</b>@Model.BigDescription</h6></div>
+                    <div style="padding:10px; float:left;"><h6><b>Комплектация @Model.Name:</b> @Model.Kit</h6></div>
+                    <div style="padding:10px 10px; float:left;"><h5><b>Техническое описание: @Model.Name</b></h5><br>
+                        <h6>Макcимальная производительность: @Model.MaxVolume</h6><br>
+                        <h6>Макимальное давление: @Model.MaxPressure</h6><br>
+                        <h6>Вес: @Model.MaxWeight</h6>
                     </div>
-                    <div style="padding:15px; float:left;"><h4>Подробное описание Товара:  @Model.Name </h4></div>
-                    <div style="padding:10px; float:left;"><h6>@Model.SmallDescription</h6></div>
-                    <div style="padding:10px; float:left;"><h6>@Model.BigDescription</h6></div>
-                    <div style="padding:10px; float:left;"><h6>Комплектация @Model.Name: @Model.Kit</h6></div>
-                    <div style="padding:10px; float:left;"><h4>Техническое описание: @Model.Name</h4></div>
-                    <div style="padding:10px; "><h6>Макимальная производительность: @Model.MaxVolume</h6></div>
-                    <div style="padding:10px; "><h6>Макимальное давление: @Model.MaxPressure</h6></div>
-                    <div style="padding:10px; "><h6>Вес: @Model.MaxWeight</h6></div>
-
                 </div>
             </div>
-            <div class="rsidebar span_1_of_left">
-                <section class="sky-form">
-                    <div class="product_right">
-                        <h3 class="m_2">КАТЕГОРИИ</h3>
-                        <vc:navigation-menu />
-                    </div>
-                </section>
-            </div>
-            <div class="clearfix"></div>
         </div>
+        <div class="rsidebar span_1_of_left">
+            <section class="sky-form">
+                <div class="product_right">
+                    <h3 class="m_2">КАТЕГОРИИ</h3>
+                    <vc:navigation-menu />
+                </div>
+            </section>
+        </div>
+        <div class="clearfix"></div>
     </div>
 </div>
+

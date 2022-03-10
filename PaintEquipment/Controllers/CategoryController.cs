@@ -8,10 +8,12 @@ namespace PaintEquipment.Controllers
     public class CategoryController : Controller
     {
         private IAppRepository repository;
+        private IAppProductRequest productRequest;
         public int PageSize = 12;
-        public CategoryController(IAppRepository repo)
+        public CategoryController(IAppRepository repo, IAppProductRequest req)
         {
             repository = repo;
+            productRequest = req;
         }
         public ViewResult Index(string category, int numerPage = 1) => View(new ProductListViewModel
         {
@@ -28,11 +30,25 @@ namespace PaintEquipment.Controllers
             CurrentCategory = category,
         });
 
-        public ViewResult Product(string URLadress)
+        public ViewResult Product(string URLadress) => View(new ProductRequestViewModel
+        { Product=repository.Products.FirstOrDefault(p=>p.URLadress==URLadress)
+        });
+            
+
+        [HttpPost]
+        public IActionResult SaveProductRequst(ProductRequest request)
         {
-            Product product = repository.Products.FirstOrDefault(p => p.URLadress == URLadress);
-            ViewBag.Title = product.Name;
-            return View(product);
+
+            if (ModelState.IsValid)
+            {
+                productRequest.SaveRequest(request);
+                return RedirectToAction(nameof(CompletedProductRequest));
+            }
+            else
+            {
+                return View(nameof(Product));
+            }
         }
+        public ViewResult CompletedProductRequest() => View();
     }
 }

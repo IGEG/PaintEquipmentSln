@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ProductRequest>
+@{
+    Layout = "_AdminLayout";
+}
+
+@if (@Model.Count() > 0)
+{
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="m-1 p-1">Товар</th>
+                    <th class="m-1 p-1">Компания</th>
+                    <th class="m-1 p-1">Имя</th>
+                    <th class="m-1 p-1">Почта</th>
+                    <th class="m-1 p-1">Телефон</th>
+                    <th class="m-1 p-1" colspan="3">Запрос</th>
+                    <th class="m-1 p-1">Действие</th>
+                </tr>
+            </thead>
+            @foreach (ProductRequest req in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>@req.ProductName</td>
+                        <td>@req.Company</td>
+                        <td>@req.Name</td>
+                        <td>@req.Email</td>
+                        <td>@req.Number</td>
+                        <td colspan="3">@req.Desc</td>
+                        <td>
+                            <form asp-action="DeleteRequests" method="post" class="m-1 p-1">
+                                <input type="hidden" name="Id" value="@req.Id" />
+                                <button type="submit" class="btn-sm btn-danger">Удалить</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+
+            }
+
+        </table>
+   
+}
+else
+{
+    <h2>Нет запросов</h2>
+}

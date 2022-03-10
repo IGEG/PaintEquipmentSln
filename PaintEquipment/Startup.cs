@@ -32,6 +32,7 @@ namespace PaintEquipment
             services.AddScoped<IAppRepository, EFAppRepository>();
             services.AddScoped<IAppOrder, EFAppOrder>();
             services.AddScoped<IAppRequest, EFAppRequest>();
+            services.AddScoped<IAppProductRequest, EFAppProductRequest>();
             services.AddScoped<IAppCategory, EFAppCategory>();
             services.AddMemoryCache();
             services.AddSession();

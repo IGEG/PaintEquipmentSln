@@ -11,12 +11,14 @@ namespace PaintEquipment.Controllers
         IAppRepository repository;
         IAppRequest request;
         IAppCategory category;
+        IAppProductRequest productRequest;
       
-        public AdminController(IAppRepository repo, IAppRequest req, IAppCategory cat)
+        public AdminController(IAppRepository repo, IAppRequest req, IAppCategory cat, IAppProductRequest prodreq)
         {
             repository = repo;
             request=req;
             category = cat;
+            productRequest = prodreq;
         }
 
         //products
@@ -103,7 +105,19 @@ namespace PaintEquipment.Controllers
            
             return RedirectToAction(nameof(ListRequest));
         }
-      
-       
+
+        //request from product page
+
+        public ViewResult ListProductRequest() => View(productRequest.productRequests);
+
+        [HttpPost]
+        public IActionResult DeleteProductRequests(int ID)
+        {
+            productRequest.DeleteRequest(ID);
+
+            return RedirectToAction(nameof(ListProductRequest));
+        }
+
+
     }
 }

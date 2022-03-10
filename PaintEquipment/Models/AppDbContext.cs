@@ -13,6 +13,8 @@ namespace PaintEquipment.Models
         public DbSet<Order> Orders { get; set; }
 
         public DbSet<Request> Requests { get; set; }
+
+        public DbSet<ProductRequest> ProductRequests { get; set; }
         public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

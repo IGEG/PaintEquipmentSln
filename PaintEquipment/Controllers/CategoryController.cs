@@ -30,10 +30,12 @@ namespace PaintEquipment.Controllers
             CurrentCategory = category,
         });
 
-        public ViewResult Product(string URLadress) => View(new ProductRequestViewModel
-        { Product=repository.Products.FirstOrDefault(p=>p.URLadress==URLadress)
-        });
-            
+        public ViewResult Product(string URLadress)
+        {
+          Product product =  repository.Products.FirstOrDefault(p => p.URLadress == URLadress);
+            return View(product);
+        }
+        
 
         [HttpPost]
         public IActionResult SaveProductRequst(ProductRequest request)

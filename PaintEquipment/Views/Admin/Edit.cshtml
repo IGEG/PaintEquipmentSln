@@ -11,22 +11,60 @@
         <div><span asp-validation-for="Name " class="text-danger" /></div>
         <input data-val="true" data-val-required="Введите Имя" asp-for="Name" class="form-control" />
     </div>
+        <div class="form-group">
+        <label asp-for="URLadress">URL адрес продукта</label>
+        <div><span asp-validation-for="URLadress " class="text-danger" /></div>
+        <input data-val="true" data-val-required="Введите название страницы без пробелов (например:graco-mark-v)" asp-for="URLadress" class="form-control" />
+    </div>
     <div class="form-group">
-        <label asp-for="SmallDescription">Описание</label>
+        <label asp-for="SmallDescription">Короткое описание товара</label>
         <div><span asp-validation-for="SmallDescription " class="text-danger" /></div>
 <textarea data-val="true" data-val-required="Укажите описание товара" asp-for="SmallDescription" class="form-control"></textarea>
+    </div>
+        <div class="form-group">
+        <label asp-for="BigDescription">Полное описание товара</label>
+        <div><span asp-validation-for="BigDescription " class="text-danger" /></div>
+<textarea data-val="true" data-val-required="Укажите полное описание товара" asp-for="BigDescription" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaxVolume">Максимальная производительность л/минуту</label>
+<input  asp-for="MaxVolume" class="form-control"/>
+    </div>
+        <div class="form-group">
+        <label asp-for="MaxPressure">Максимальное давление бар.</label>      
+<input  asp-for="MaxPressure" class="form-control"/>
+    </div>
+        <div class="form-group">
+        <label asp-for="MaxWeight">Вес оборудования кг.</label>
+<input asp-for="MaxWeight" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Kit">Укажите комплектацию оборудвания</label>
+<input asp-for="Kit" class="form-control"/>
     </div>
     <div class="form-group">
         <label asp-for="Category">Категория товара</label>
         <div><span asp-validation-for="Category" class="text-danger" />
-        <select class="form-control" asp-for="Category">
-            @if (Model.Id == 0)
+@*        <select class="form-control" asp-for="CategoryId">
+            @if (Model.CategoryId == 0)
             {
                 <option disabled selected>Выберете категорию</option>
             }
-            @foreach(Category cat in ViewBag.Categories)
+            @foreach(Category cat in ViewBag.Category)
             {
-                <option selected=@(Model.CategoryId==cat.Id) value="@cat.Id">@cat.Name</option>
+                <option selected=@cat.Id value="@cat.Id">@cat.Name</option>
+
+            }
+        </select>*@
+                <select class="form-control" asp-for="Category">
+            @if (Model.CategoryId == 0)
+            {
+                <option disabled selected>Выберете категорию</option>
+            }
+            @foreach(Category cat in ViewBag.Category)
+            {
+                <option asp-for="@cat">@cat.Name</option>
+       
 
             }
         </select>

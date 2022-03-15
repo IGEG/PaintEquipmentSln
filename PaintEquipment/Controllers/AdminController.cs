@@ -2,6 +2,7 @@
 using PaintEquipment.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace PaintEquipment.Controllers
 {
@@ -26,7 +27,7 @@ namespace PaintEquipment.Controllers
 
         public ViewResult Edit(int ID)
         {
-            ViewBag.Categories = category.categories;
+            ViewBag.Category = category.categories;
             return View(repository.Products.FirstOrDefault(p => p.Id == ID));
         }
 
@@ -34,17 +35,22 @@ namespace PaintEquipment.Controllers
 
         public IActionResult Edit(Product product)
         {
-            ViewBag.Categories = category.categories;
-            if (ModelState.IsValid)
-            {
+            ViewBag.Category = category.categories;
+
+            //if (ModelState.IsValid)
+            //{
                 
                 repository.SaveProduct(product);
                 TempData["message"] = $"{product.Name} успешно сохранен!";
                 return RedirectToAction(nameof(Index));
-            }
-            return View(product);
+            //}
+            //return View(product);
         }
-        public ViewResult Create() => View("Edit", new Product());
+        public ViewResult Create()
+        {
+            ViewBag.Category = category.categories;
+            return  View("Edit", new Product());
+        }
 
         [HttpPost]
 

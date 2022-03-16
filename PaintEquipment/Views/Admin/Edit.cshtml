@@ -1,80 +1,60 @@
-﻿@model Product
+﻿@model ProductViewModel
 @{
     Layout = "_AdminLayout";
     ViewBag.Title = "Редактирование товара";
 }
 
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="Id" />
+<form asp-action="Edit" enctype="multipart/form-data" method="post">
+    <input type="hidden" asp-for="product.Id" />
     <div class="form-group">
-        <label asp-for="Name">Наименование</label>
-        <div><span asp-validation-for="Name " class="text-danger" /></div>
-        <input data-val="true" data-val-required="Введите Имя" asp-for="Name" class="form-control" />
+        <label asp-for="product.Name">Наименование</label>
+        <div><span asp-validation-for="product.Name " class="text-danger" /></div>
+        <input data-val="true" data-val-required="Введите Имя" asp-for="product.Name" class="form-control" />
     </div>
         <div class="form-group">
-        <label asp-for="URLadress">URL адрес продукта</label>
-        <div><span asp-validation-for="URLadress " class="text-danger" /></div>
-        <input data-val="true" data-val-required="Введите название страницы без пробелов (например:graco-mark-v)" asp-for="URLadress" class="form-control" />
+        <label asp-for="product.URLadress">URL адрес продукта</label>
+        <div><span asp-validation-for="product.URLadress " class="text-danger" /></div>
+        <input data-val="true" data-val-required="Введите название страницы без пробелов (например:graco-mark-v)" asp-for="product.URLadress" class="form-control" />
     </div>
     <div class="form-group">
-        <label asp-for="SmallDescription">Короткое описание товара</label>
-        <div><span asp-validation-for="SmallDescription " class="text-danger" /></div>
-<textarea data-val="true" data-val-required="Укажите описание товара" asp-for="SmallDescription" class="form-control"></textarea>
+        <label asp-for="product.SmallDescription">Короткое описание товара</label>
+        <div><span asp-validation-for="product.SmallDescription " class="text-danger" /></div>
+<textarea data-val="true" data-val-required="Укажите описание товара" asp-for="product.SmallDescription" class="form-control"></textarea>
     </div>
         <div class="form-group">
-        <label asp-for="BigDescription">Полное описание товара</label>
-        <div><span asp-validation-for="BigDescription " class="text-danger" /></div>
-<textarea data-val="true" data-val-required="Укажите полное описание товара" asp-for="BigDescription" class="form-control"></textarea>
+        <label asp-for="product.BigDescription">Полное описание товара</label>
+        <div><span asp-validation-for="product.BigDescription " class="text-danger" /></div>
+<textarea data-val="true" data-val-required="Укажите полное описание товара" asp-for="product.BigDescription" class="form-control"></textarea>
     </div>
     <div class="form-group">
-        <label asp-for="MaxVolume">Максимальная производительность л/минуту</label>
-<input  asp-for="MaxVolume" class="form-control"/>
+        <label asp-for="product.MaxVolume">Максимальная производительность л/минуту</label>
+<input  asp-for="product.MaxVolume" class="form-control"/>
     </div>
         <div class="form-group">
-        <label asp-for="MaxPressure">Максимальное давление бар.</label>      
-<input  asp-for="MaxPressure" class="form-control"/>
+        <label asp-for="product.MaxPressure">Максимальное давление бар.</label>      
+<input  asp-for="product.MaxPressure" class="form-control"/>
     </div>
         <div class="form-group">
-        <label asp-for="MaxWeight">Вес оборудования кг.</label>
-<input asp-for="MaxWeight" class="form-control"/>
+        <label asp-for="product.MaxWeight">Вес оборудования кг.</label>
+<input asp-for="product.MaxWeight" class="form-control"/>
     </div>
     <div class="form-group">
-        <label asp-for="Kit">Укажите комплектацию оборудвания</label>
-<input asp-for="Kit" class="form-control"/>
+        <label asp-for="product.Kit">Укажите комплектацию оборудвания</label>
+<input asp-for="product.Kit" class="form-control"/>
     </div>
     <div class="form-group">
-        <label asp-for="Category">Категория товара</label>
-        <div><span asp-validation-for="Category" class="text-danger" />
-@*        <select class="form-control" asp-for="CategoryId">
-            @if (Model.CategoryId == 0)
-            {
-                <option disabled selected>Выберете категорию</option>
-            }
-            @foreach(Category cat in ViewBag.Category)
-            {
-                <option selected=@cat.Id value="@cat.Id">@cat.Name</option>
-
-            }
-        </select>*@
-                <select class="form-control" asp-for="Category">
-            @if (Model.CategoryId == 0)
-            {
-                <option disabled selected>Выберете категорию</option>
-            }
-            @foreach(Category cat in ViewBag.Category)
-            {
-                <option asp-for="@cat">@cat.Name</option>
-       
-
-            }
+        <label asp-for="categories">Категория товара</label>
+        <div><span asp-validation-for="categories" class="text-danger" />     
+                <select class="form-control" asp-for="product.CategoryId" asp-items="@Model.categories.ToSelectListItems()">
+                <option disabled selected value="">Выберете категорию </option>     
         </select>
         </div>
     </div>
-    @*<div class="form-group">
-        <label asp-for="Price">Цена</label>
-        <div><span asp-validation-for="Price" class="text-danger" /></div>
-        <input data-val="true" data-val-required="Укажите стоимость товара" asp-for="Price" class="form-control" />
-    </div>*@
+    <div class="form-group">
+        <label asp-for="product.Img">Загрузить картинку с оборудованием (формат 400х400px.)</label>
+        <div><span asp-validation-for="product.Img" class="text-danger" /></div>
+        <input type="file" name="files" class="form-control" />
+    </div>
     <div class="text-center">
         <button class="btn btn-primary" type="submit">Сохранить</button> <a asp-action="Index" class="btn btn-secondary">Отмена</a>
     </div>

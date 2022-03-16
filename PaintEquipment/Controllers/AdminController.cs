@@ -3,6 +3,7 @@ using PaintEquipment.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using PaintEquipment.Models.ViewModels;
 
 namespace PaintEquipment.Controllers
 {
@@ -27,29 +28,29 @@ namespace PaintEquipment.Controllers
 
         public ViewResult Edit(int ID)
         {
-            ViewBag.Category = category.categories;
-            return View(repository.Products.FirstOrDefault(p => p.Id == ID));
+            
+            return View( new ProductViewModel { product= repository.Products.FirstOrDefault(p => p.Id == ID), categories=category.categories });
         }
 
         [HttpPost]
 
-        public IActionResult Edit(Product product)
+        public IActionResult Edit(ProductViewModel newProduct)
         {
-            ViewBag.Category = category.categories;
+
 
             //if (ModelState.IsValid)
             //{
-                
-                repository.SaveProduct(product);
-                TempData["message"] = $"{product.Name} успешно сохранен!";
+               
+                repository.SaveProduct(newProduct.product);
+                TempData["message"] = $"{newProduct.product.Name} успешно сохранен!";
                 return RedirectToAction(nameof(Index));
             //}
             //return View(product);
         }
         public ViewResult Create()
         {
-            ViewBag.Category = category.categories;
-            return  View("Edit", new Product());
+            
+            return  View("Edit", new ProductViewModel {product=new Product(), categories = category.categories });
         }
 
         [HttpPost]

@@ -52,22 +52,15 @@ namespace PaintEquipment
             app.UseAuthorization();
             app.UseEndpoints(endpoints => {
                 
-                endpoints.MapControllerRoute("catpage",
-                    "{category}/Page{numerPage:int}",
-                    new { Controller = "Home", action = "Index" });
+
 
                 endpoints.MapControllerRoute("Product", "Category/Product/{URLadress?}",
                     new { Controller = "Category", action = "Product" });
 
-                endpoints.MapControllerRoute("page", "Page{numerPage:int}",
-                    new { Controller = "Home", action = "Index", numerPage = 1 });
 
-                endpoints.MapControllerRoute("category", "{category}",
-                    new { Controller = "Home", action = "Index", numerPage = 1 });
+                endpoints.MapControllerRoute("Default", "{controller}/{action}",
+                    new { Controller = "Main", action = "Index" });
 
-                endpoints.MapControllerRoute("pagination",
-                    "Products/Page{numerPage}",
-                    new { Controller = "Home", action = "Index", numerPage = 1 });
                 endpoints.MapDefaultControllerRoute();
               
                

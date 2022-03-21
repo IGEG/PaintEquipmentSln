@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PaintEquipment.Models;
 using System.Linq;
+using System.IO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using PaintEquipment.Models.ViewModels;
+using Microsoft.AspNetCore.Hosting;
 
 namespace PaintEquipment.Controllers
 {
@@ -14,13 +16,16 @@ namespace PaintEquipment.Controllers
         IAppRequest request;
         IAppCategory category;
         IAppProductRequest productRequest;
+        IWebHostEnvironment hosting;
+       
       
-        public AdminController(IAppRepository repo, IAppRequest req, IAppCategory cat, IAppProductRequest prodreq)
+        public AdminController(IAppRepository repo, IAppRequest req, IAppCategory cat, IAppProductRequest prodreq, IWebHostEnvironment host)
         {
             repository = repo;
             request=req;
             category = cat;
             productRequest = prodreq;
+            hosting = host;
         }
 
         //products
@@ -38,14 +43,37 @@ namespace PaintEquipment.Controllers
         {
 
 
-            //if (ModelState.IsValid)
-            //{
-               
+            if (!ModelState.IsValid)
+            {
+
                 repository.SaveProduct(newProduct.product);
-                TempData["message"] = $"{newProduct.product.Name} успешно сохранен!";
+                //id product
+                var productID = newProduct.product.Id;
+                // получаем адрес картинки
+                var wwwrootpath = hosting.WebRootPath;
+                // получаем файл картинки
+                var files = HttpContext.Request.Form.Files;
+                // ссылка на сохранение в базу
+                var savedProduct = repository.Products.FirstOrDefault(p => p.Id == productID);
+                //загрузка файла на сервер и сохранение пути доступа к картинке
+                if (files.Count != 0)
+                {
+                    var imagePath = @"\Lib\Img\";
+                    var extension = Path.GetExtension(files[0].FileName);
+                    var relativImagePath = imagePath + productID + extension;
+                    var absImagePath = wwwrootpath + relativImagePath;
+                    using (var fileStream = new FileStream(absImagePath, FileMode.Create))
+                    {
+                        files[0].CopyTo(fileStream);
+                    }
+
+                    savedProduct.Img = relativImagePath;
+                    repository.SaveProduct(savedProduct);
+                    TempData["message"] = $"{savedProduct.Name} успешно сохранен!";
+                }
                 return RedirectToAction(nameof(Index));
-            //}
-            //return View(product);
+            }
+            return View(newProduct);
         }
         public ViewResult Create()
         {

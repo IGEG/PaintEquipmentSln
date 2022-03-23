@@ -166,18 +166,23 @@ a.morebtn:hover{
 	color:#000;
 }
 /*--categories--*/
-.categories{
-	background:url(../Img/background/cateegories-font-2.jpg) no-repeat;
-	background-size:cover;
-	min-height:600px;
-	text-align:center;
+.categories {
+	background: url(../Img/background/cateegories-font-2.jpg) no-repeat;
+	/*background-size: cover;
+	min-height: 600px;
+	text-align: center;
 	padding:5em 0em 5em 5em; 
+	padding: 5em 0;*/
+	background-size: cover;
+	min-height: 600px;
+	text-align: center;
+	padding: 5em 0;
 }
 .categories h3,.bikes h3{
 	 color:#000;
 	 font-size:2em;
 	 font-weight:600;
-	 margin:2em 2em 2em 2em;
+	/* margin:2em 2em 2em 2em;*/
 }
 .bikes h3{
 	text-align:center;
@@ -185,12 +190,15 @@ a.morebtn:hover{
 .categorie-grids {
 	 margin-top:4em;
 }
-.cate-grid{	
-	padding:0 0 0 0; 
+.cate-grid {
+	/*padding:0 0 0 0; 
 	min-height:350px;
+	background-size: 100%;*/
+	padding: 0em 0 0 0;
+	min-height: 290px;
 	background-size: 100%;
-
-	
+	margin: 0 12px;
+	width: 31%;
 }
 .grid1 {
 	background: url(../Img/background/cateegories-font-1.jpg) no-repeat;
@@ -202,16 +210,20 @@ a.morebtn:hover{
 	
 }
 .grid3{
-	background:url(../Img/background/cateegories-font2.jpg) no-repeat;
+	background:url(../Img/background/cateegories-font23.jpg) no-repeat;
 	
 }
-.cate-grid h4{
-	color:#333333;
-	font-size:1.1em;
+.cate-grid h4 {
+	color: #333333;
+	/*font-size:1.1em;
 	font-weight:600;
 	letter-spacing:1px;
 	margin-bottom:2px;
-	padding:50px;
+	padding:50px;*/
+	font-size: 1.1em;
+	font-weight: 600;
+	letter-spacing: 1px;
+	margin-bottom: 6px;
 } 
 .cate-grid p{
 	color:#707070;
@@ -233,11 +245,13 @@ a.store{
 		color: #caca;
 	}
 /*--bikes--*/
-.bikes{
-	padding:2em 0 2em 0;
+.bikes {
+	/*padding:2em 0 2em 0;*/
+	padding: 6em 0 2em 0;
 }
-.bikes-grids{
-	margin-top:1em;
+.bikes-grids {
+	/*margin-top:1em;*/
+	margin-top: 8em;
 }
 #flexiselDemo1, #flexiselDemo2, #flexiselDemo3 {
 	display: none;
@@ -271,14 +285,21 @@ a.store{
 	  width: 90%;
   margin: 0 5%;
 }
-.bike-info{
-	padding:0 10px;
-	margin-top:5em;
+.bike-info {
+	/**/ /*padding: 10px;*/
+	/*margin:auto*/
+	/*float:unset;*/
+	padding: 0 20px;
+	margin-top: 4em;
 }
-.model{
-	float:left;
-	width:100%;
-	text-align:center;
+.model {
+	/*	float: none;
+	padding: 15px;
+	width: 100%;
+	text-align: center;*/
+	float: left;
+	width: 50%;
+	text-align: left;
 }
 
 
@@ -1421,7 +1442,7 @@ a.morebtn {
 .cate-grid {
   padding: 7em 0 0 0;
   min-height: 273px;
-  margin: 0px 15px;
+  margin: 0px 5px;
   width: 30%;
 }
 .categories {

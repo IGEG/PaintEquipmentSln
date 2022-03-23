@@ -34,19 +34,29 @@
 						<span>Menu</span>
 						</label>
 						<input id="mobile_menu" type="checkbox">
-					  <ul class="nav">
-						  <li class="dropdown1"><a href="#">ОБОРУДОВАНИЕ</a>
+					    <ul class="nav">
+						  <li class="dropdown1"><a  asp-controller="Category" asp-action="index">ОБОРУДОВАНИЕ</a>
 							  <ul class="dropdown2">
-									<li><a asp-controller="home" asp-action="index">Пневматические аппараты</a></li>
-									<li><a asp-controller="home" asp-action="index">Электрические аппараты</a></li>
-									<li><a asp-controller="home" asp-action="index">Бензиновые аппараты</a></li>	
-									<li><a asp-controller="home" asp-action="index">Текстурные распылители</a></li>
-									<li><a asp-controller="home" asp-action="index">Установки для ППУ</a></li>
-									<li><a asp-controller="home" asp-action="index">Нанесение разметки</a></li>
-									<li><a asp-controller="home" asp-action="index">Насосы</a></li>
-									<li><a asp-controller="home" asp-action="index">Ручные окрасочные пистолеты</a></li>
-									<li><a asp-controller="home" asp-action="index">Многокомпонетные установки</a></li>
-									<li><a asp-controller="home" asp-action="index">Нанесение герметика и клея</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Пневматические окрасочные аппараты"
+asp-route-numberPage="1">Пневматические аппараты</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Электрические окрасочные аппараты"
+asp-route-numberPage="1">Электрические аппараты</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Бензиновые окрасочные аппараты"
+asp-route-numberPage="1">Бензиновые аппараты</a></li>	
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Штукатурные и шпаклевочные станции"
+asp-route-numberPage="1">Текстурные распылители</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Reactor,установки для ППУ"
+asp-route-numberPage="1">Установки для ППУ</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Нанесение разметки"
+asp-route-numberPage="1">Нанесение разметки</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Насосы"
+asp-route-numberPage="1">Насосы</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Ручные окрасочные пистолеты"
+asp-route-numberPage="1">Ручные окрасочные пистолеты</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Многокомпонентные системы"
+asp-route-numberPage="1">Многокомпонетные установки</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Нанесение герметиков клеев"
+asp-route-numberPage="1">Нанесение герметика и клея</a></li>
 
 							  </ul>
 						  </li>

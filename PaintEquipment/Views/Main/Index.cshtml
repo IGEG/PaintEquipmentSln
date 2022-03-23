@@ -13,8 +13,8 @@ Layout=null;
 <!-- Custom Theme files -->
 <link href="~/lib/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- Custom Theme files -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale="1">
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
 <!-- dropdown -->
 <script src="~/lib/js/jquery.easydropdown.js"></script>
 <link href="~/lib/css/nav.css" rel="stylesheet" type="text/css" media="all"/>
@@ -58,16 +58,26 @@ Layout=null;
 					   <ul class="nav">
 						  <li class="dropdown1"><a  asp-controller="Category" asp-action="index">ОБОРУДОВАНИЕ</a>
 							  <ul class="dropdown2">
-									<li><a asp-controller="home" asp-action="index">Пневматические аппараты</a></li>
-									<li><a asp-controller="home" asp-action="index">Электрические аппараты</a></li>
-									<li><a asp-controller="home" asp-action="index">Бензиновые аппараты</a></li>	
-									<li><a asp-controller="home" asp-action="index">Текстурные распылители</a></li>
-									<li><a asp-controller="home" asp-action="index">Установки для ППУ</a></li>
-									<li><a asp-controller="home" asp-action="index">Нанесение разметки</a></li>
-									<li><a asp-controller="home" asp-action="index">Насосы</a></li>
-									<li><a asp-controller="home" asp-action="index">Ручные окрасочные пистолеты</a></li>
-									<li><a asp-controller="home" asp-action="index">Многокомпонетные установки</a></li>
-									<li><a asp-controller="home" asp-action="index">Нанесение герметика и клея</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Пневматические окрасочные аппараты"
+asp-route-numberPage="1">Пневматические аппараты</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Электрические окрасочные аппараты"
+asp-route-numberPage="1">Электрические аппараты</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Бензиновые окрасочные аппараты"
+asp-route-numberPage="1">Бензиновые аппараты</a></li>	
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Штукатурные и шпаклевочные станции"
+asp-route-numberPage="1">Текстурные распылители</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Reactor,установки для ППУ"
+asp-route-numberPage="1">Установки для ППУ</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Нанесение разметки"
+asp-route-numberPage="1">Нанесение разметки</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Насосы"
+asp-route-numberPage="1">Насосы</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Ручные окрасочные пистолеты"
+asp-route-numberPage="1">Ручные окрасочные пистолеты</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Многокомпонентные системы"
+asp-route-numberPage="1">Многокомпонетные установки</a></li>
+									<li><a asp-controller="category" asp-action="index" asp-route-category="Нанесение герметиков клеев"
+asp-route-numberPage="1">Нанесение герметика и клея</a></li>
 
 							  </ul>
 						  </li>
@@ -102,37 +112,14 @@ Layout=null;
 								<li><h1> ОКРАСОЧНОЕ ОБОРУДОВАНИЕ<br/> С ЭЛЕКТРИЧЕСИКМ ПРИВОДОМ</h1></li>	
 						  </ul>
 						  <p> Только  качественное окрасочное оборуование <br/> все остальное - <span>компромис!</span></p>
-						  <a class="morebtn" href="#">ПЕРЕЙТИ В МАГАЗИН</a>
+						  <a class="morebtn" asp-controller="Category" asp-action="Index">ПЕРЕЙТИ В МАГАЗИН</a>
 					  </div>
 				  </div>
 	 </div>
 	 <div class="dwn">
-		<a class="scroll" href="#"><img style="max-height:100px; max-width:100px;" src="~/lib/Img/gear.png" alt="вниз"/></a>
-	 </div>				 
-</div>
-<!--категории-->
-<div id="cate" class="categories">
-	 <div class="container">
-		 <h3>КАТЕГОРИИ</h3>
-		 <div class="row cate-grid"  >
-			 <div class="col-md-4 cate-grid grid1">
-				 <h4>ОБОРУДОВАНИЕ</h4>
-				 <p>Профессиональное окрасочное   <br/> оборудование</p>
-				 <a class="store" href="#">ПЕРЕЙТИ К ПОКУПКАМ</a>
-			 </div>
-			<div class="col-md-4 cate-grid grid2">
-				 <h4>КОМПЛЕКТУЮЩИЕ</h4>
-				 <p>Аксессуары для всех видов<br/> окрасочных работ</p>
-				 <a class="store" href="#">ПЕРЕЙТИ К ПОКУПКАМ</a>
-			 </div>
-			<div class="col-md-4 cate-grid grid3">
-				 <h4>ЗИП</h4>
-				 <p>Запасные части<br/> высокого качества</p>
-				 <a class="store" href="#">ПЕРЕЙТИ К ПОКУПКАМ</a>
-			 </div>
-			 
-		 </div>
-	 </div>
+		<a class="scroll" href="#cate"><img style="max-height:100px; max-width:100px;" src="~/lib/Img/gear.png" alt="вниз"/></a>
+	 </div>	
+	 <div class="clearfix"></div>
 </div>
 <!--Линейка оборудования-->
 <div class="bikes">	
@@ -143,57 +130,44 @@ Layout=null;
 					 <img src="~/lib/Img/mainmenu-popular-product/MarkV.jpeg" alt=""/>
 					 <div class="bike-info">
 						 <div class="model">
-							 <h4>GRACO MARK V</h4>							 
-						 </div>
-						 <div class="model-info" >
-							 <a href="#">КУПИТЬ</a>
-						 </div>						 
+							 <h4></h4>							 
+						 </div>				 
 						 <div class="clearfix"></div>
 					 </div>
 					 <div class="viw">
-						<a href="#">ПЕРЕЙТИ</a>
+						<a href="~/Category/Product/graco-mark-v">ПЕРЕЙТИ</a>
 					 </div>
 				 </li>
 				 <li>
 				 <img src="~/lib/Img/mainmenu-popular-product/GX21.jpg" alt=""/>
 				 <div class="bike-info">
 						 <div class="model">
-							 <h4>GRACO GX21</h4>							 
-						 </div>
-						 <div class="model-info">
-							 <a href="#">КУПИТЬ</a>
-						 </div>						 
+							 <h4></h4>							 
+						 </div>					 
 						 <div class="clearfix"></div>
 					 </div>
 					 <div class="viw">
-						<a href="#">ПЕРЕЙТИ</a>
+						<a href="~/Category/Product/graco-gx21">ПЕРЕЙТИ</a>
 					 </div>
 				 </li>
 				 <li>
 					 <img src="~/lib/Img/mainmenu-popular-product/king.jpg" alt=""/>
 					 <div class="bike-info">
 						 <div class="model">
-							 <h4>GRACO KING</h4>							 
-						 </div>
-						 <div class="model-info">
-						     
-							 <a href="#">КУПИТЬ</a>
-						 </div>						 
+							 <h4></h4>							 
+						 </div>					 
 						 <div class="clearfix"></div>
 					 </div>
 					 <div class="viw">
-						<a href="#">ПЕРЕЙТИ</a>
+						<a href="~/Category/Product/graco-king">ПЕРЕЙТИ</a>
 					 </div>
 				 </li>
 				 <li>
 				     <img src="~/lib/Img/mainmenu-popular-product/stmax.jpeg" alt=""/>
 					 <div class="bike-info">
 						 <div class="model">
-							 <h4>GRACO StMax</h4>							 
-						 </div>
-						 <div class="model-info">
-							 <a href="#">КУПИТЬ</a>
-						 </div>						 
+							 <h4></h4>							 
+						 </div>					 
 						 <div class="clearfix"></div>
 					 </div>
 					 <div class="viw">
@@ -204,19 +178,17 @@ Layout=null;
 				     <img src="~/lib/Img/mainmenu-popular-product/Merkur.jpeg" alt=""/>
 					 <div class="bike-info">
 						 <div class="model">
-							 <h4>GRACO Merkur</h4>							 
-						 </div>
-						 <div class="model-info">
-							 <a href="#">КУПИТЬ</a>
-						 </div>						 
+							 <h4></h4>							 
+						 </div>					 
 						 <div class="clearfix"></div>
 					 </div>
 					 <div class="viw">
-						<a href="#">ПЕРЕЙТИ</a>
+						<a href="~/Category/Product/graco-king">ПЕРЕЙТИ</a>
 					 </div>
 				 </li>
 		
 		    </ul>
+			
 			<script type="text/javascript">
 			 $(window).load(function() {			
 			  $("#flexiselDemo1").flexisel({
@@ -260,6 +232,7 @@ Layout=null;
 			 <textarea placeholder="Сообщение" asp-for="Desc"></textarea>
 			 <input type="submit" value="ОТПРАВИТЬ">
 		</form>
+		<div class="clearfix"></div>
 	</div>
 </div>
 <!---->
@@ -271,10 +244,10 @@ Layout=null;
 		</div>
 		<div class="ftr-menu">
 			 <ul>
-				 <li><a href="#">ОБОРУДОВАНИЕ</a></li>
-				 <li><a href="#">КОМПЛЕКТУЮЩИЕ</a></li>
-				 <li><a href="#">АКСЕССУАРЫ</a></li>
-				 <li><a href="#">ЗАПЧАСТИ</a></li>
+				 <li><a asp-controller="category" asp-action="index">ОБОРУДОВАНИЕ</a></li>
+				 <li><a asp-controller="category" asp-action="index">КОМПЛЕКТУЮЩИЕ</a></li>
+				 <li><a asp-controller="category" asp-action="index">АКСЕССУАРЫ</a></li>
+				 <li><a asp-controller="category" asp-action="index">ЗАПЧАСТИ</a></li>
 			 </ul>
 		</div>
 		<div class="clearfix"></div>

@@ -44,6 +44,17 @@ namespace PaintEquipment.Controllers
             return RedirectToAction("AllProductInCart", new { returnUrl });
 
         }
+        [HttpPost]
+        public RedirectToActionResult DeleteOneProductFromCart(int ID, string returnUrl)
+        {
+            Product product = app.Products.FirstOrDefault(x => x.Id == ID);
+            if (product != null)
+            {
+                _cart.AddRow(product,-1);
+            }
+            return RedirectToAction("AllProductInCart", new { returnUrl });
+
+        }
 
     }
 }

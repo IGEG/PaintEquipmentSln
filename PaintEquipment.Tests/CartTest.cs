@@ -40,25 +40,12 @@ namespace PaintEquipment.Tests
            
         }
 
-        [Fact]
-        public void CandSummAllProductPriceInCrt()
-        {
-            Product p1 = new Product { Id = 1, Name = "Product1", Price=100 };
-            Product p2 = new Product { Id = 2, Name = "Product2", Price=200 };
-            CartAll cart = new CartAll();
-            cart.AddRow(p1, 1);
-            cart.AddRow(p2, 2);
-            
-            CartRow[] cartrow = cart.Rows.ToArray();
-            decimal sumcart = cart.GetTotalSum();
-            Assert.Equal(500, sumcart);
-
-        }
+      
         [Fact]
         public void CanEmptyAllProductInCart()
         {
-            Product p1 = new Product { Id = 1, Name = "Product1", Price = 100 };
-            Product p2 = new Product { Id = 2, Name = "Product2", Price = 200 };
+            Product p1 = new Product { Id = 1, Name = "Product1" };
+            Product p2 = new Product { Id = 2, Name = "Product2" };
             CartAll cart = new CartAll();
             cart.AddRow(p1, 1);
             cart.AddRow(p2, 2);

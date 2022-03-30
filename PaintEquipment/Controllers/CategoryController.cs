@@ -9,7 +9,7 @@ namespace PaintEquipment.Controllers
     {
         private IAppRepository repository;
         private IAppProductRequest productRequest;
-        public int PageSize = 18;
+        public int PageSize = 12;
         public CategoryController(IAppRepository repo, IAppProductRequest req)
         {
             repository = repo;

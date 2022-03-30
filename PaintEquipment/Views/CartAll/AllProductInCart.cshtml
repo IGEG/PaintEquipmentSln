@@ -1,10 +1,14 @@
 ﻿@model CartViewModel
 
-<h2>Товары в корзине:</h2>
+<h2 style="margin:15px;">Товары в корзине:</h2>
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
+            <th>Изображение</th>
             <th>Количество (шт.)</th>
+            <th>Увеличить количество (шт.)</th>
+            <th>Уменьшить количество (шт.)</th>
+            <th>Изменить количество (шт.)</th>
             <th>Наименование</th>
            @* <th class="text-right">Цена</th>
             <th class="text-right">Сумма</th>*@
@@ -13,9 +17,19 @@
     <tbody>
         @foreach (var line in Model.Cart.Rows) {
             <tr>
+                <td ><img src="@line.Product.Img" alt="@line.Product.Name" style="width: 100px; height= 100px;" asp-append-version="true"/></td>
                 <td class="text-center">@line.Quantity</td>
+                <td class="text-center"><form asp-action="AddToCart" asp-controller="CartAll" method="post"> 
+                    <input type="hidden" name="Id" value="@line.Product.Id" />
+                    <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                <button type="submit"  class="btn btn-dark">Увеличить</button></form> </td>
+                <td class="text-center"><form asp-action="DeleteOneProductFromCart"> 
+                    <input type="hidden" name="ID" value="@line.Product.Id" />
+                    <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                <button type="submit"  class="btn btn-dark">Уменьшить</button></form> </td>
+                <td> <input type="number" asp-for="@line.Quantity" min="0" max="1000" /></td>
                 <td class="text-left">@line.Product.Name</td>
-               @* @*<td class="text-right">@line.Product.Price.ToString("c")</td>*@
+              @*<td class="text-right">@line.Product.Price.ToString("c")</td>*@
                 @*<td class="text-right">0</td>
                 <td class="text-right">*@
                     @*@((line.Quantity * line.Product.Price).ToString("c"))*@
@@ -27,7 +41,7 @@
                                value="@line.Product.Id" />
                         <input type="hidden" name="returnUrl"
                                value="@Model.ReturnUrl" />
-                        <button type="submit" class="btn btn-sm btn-danger">
+                        <button type="submit" class="btn btn-dark">
                             Удалить
                         </button>
                     </form>
@@ -46,9 +60,33 @@
 </table>
 
 <div class="text-center">
-    <a class="btn btn-primary" href="@Model.ReturnUrl">Продолжить покупки</a>
-    <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">
+    <a class="btn btn-secondary" style="margin:15px;" href="@Model.ReturnUrl">Продолжить покупки</a>
+    <a class="btn btn-secondary" style="margin:15px;" asp-action="Checkout" asp-controller="Order">
         Оформить заказ
     </a>
 </div>
+<script src="~/lib/jquery/jquery/jquery.min.js"></script>
+<script>
+     $(function () {
+         $("input[name='line.Quantity']").change(function () {
+             //get the new quantity
+             var newquantity = parseInt($(this).val());
+             //update the original quantity value
+             $(this).closest("tr").find("td")[1].innerHTML = newquantity;
 
+             //get the price
+             //var price = parseFloat($(this).closest("tr").find("td")[3].innerHTML);
+             ////calculate the total
+             //$(this).closest("tr").find("td")[5].innerHTML = newquantity * price;
+
+
+             //calcule the Grand Total
+             //var grandtotal = 0;
+             //$("tbody").find("tr").each(function (index, item) {
+             //    var value = parseFloat($(item).find("td")[5].innerHTML);
+             //    grandtotal += value;
+             });
+             //$(".text-right h3:last").html("Grand Total : " + grandtotal.toString());
+        }); 
+    });
+</script>

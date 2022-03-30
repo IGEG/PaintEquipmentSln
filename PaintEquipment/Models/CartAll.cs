@@ -18,8 +18,25 @@ namespace PaintEquipment.Models
                     Quantity = quantity
                 });
             }
-            else row.Quantity += quantity;
+          
+            else if (row.Quantity >= 1)
+            {
+                row.Quantity += quantity;
+            }
+            else
+            {
+                Rows.RemoveAll(p => p.Product.Id == product.Id);
+            }
         }
+
+        public virtual void DeleteOneRow(Product product,int quantity)
+        {
+            CartRow row = Rows.Where(p => p.Product.Id == product.Id).First();
+        
+            row.Quantity += quantity;
+
+        }
+
         public virtual void DeleteRow(Product product)
         {
             Rows.RemoveAll(p => p.Product.Id == product.Id);

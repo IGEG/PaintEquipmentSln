@@ -17,8 +17,17 @@ namespace PaintEquipment.Controllers
         IAppCategory category;
         IAppProductRequest productRequest;
         IWebHostEnvironment hosting;
-       
-      
+
+        public AdminController(IAppRepository repo)
+        {
+            repository = repo;
+        }
+
+        public AdminController(IAppRepository repo, IAppCategory cat)
+        {
+            repository = repo;
+            category = cat;
+        }
         public AdminController(IAppRepository repo, IAppRequest req, IAppCategory cat, IAppProductRequest prodreq, IWebHostEnvironment host)
         {
             repository = repo;

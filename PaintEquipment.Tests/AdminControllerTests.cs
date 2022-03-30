@@ -7,6 +7,8 @@ using PaintEquipment.Controllers;
 using Moq;
 using Xunit;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+using PaintEquipment.Models.ViewModels;
 
 namespace PaintEquipment.Tests
 {
@@ -15,6 +17,7 @@ namespace PaintEquipment.Tests
         [Fact]
         public void CanGetProductInView()
         {
+
             Mock<IAppRepository> mock = new Mock<IAppRepository>();
             mock.Setup(p => p.Products).Returns((new Product[]{
             new Product { Id=1,Name="P1"},
@@ -32,15 +35,20 @@ namespace PaintEquipment.Tests
         [Fact]
         public void CanEditProduct()
         {
+            Mock<IAppCategory> mockcategory = new Mock<IAppCategory>();
+            mockcategory.Setup(c => c.categories).Returns((new Category[] {
+            new Category {Id=1,Name="1" },
+            new Category {Id=2,Name="2" }
+            }).AsQueryable<Category>());
             Mock<IAppRepository> mock = new Mock<IAppRepository>();
             mock.Setup(p => p.Products).Returns((new Product[]{
-            new Product { Id=1, Name="P1"},
-            new Product { Id = 2, Name = "P2" },
-            new Product { Id = 3, Name = "P3" },
+            new Product { Id = 1, Name = "P1", CategoryId=1 },
+            new Product { Id = 2, Name = "P2", CategoryId=1 },
+            new Product { Id = 3, Name = "P3", CategoryId=1 }
             }).AsQueryable<Product>());
-            AdminController controller = new AdminController(mock.Object);
-            Product product = GetViewModel<Product>(controller.Edit(2));
-            Assert.Equal(2, product.Id);
+            AdminController controller = new AdminController(mock.Object,mockcategory.Object);
+            ProductViewModel product = (controller.Edit(1) as ViewResult).ViewData.Model as ProductViewModel;
+            Assert.Equal(1, product.product.Id);
 
         }
 

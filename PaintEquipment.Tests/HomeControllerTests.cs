@@ -6,6 +6,7 @@ using PaintEquipment.Controllers;
 using PaintEquipment.Models;
 using PaintEquipment.Models.ViewModels;
 using Xunit;
+using System.Linq;
 
 namespace PaintEquipment.Tests
 {
@@ -85,23 +86,6 @@ namespace PaintEquipment.Tests
         }
 
     
-        [Fact]
-        public void CanCategoryFilters()
-        {
-            Mock<IAppRepository> mock = new Mock<IAppRepository>();
-            mock.Setup(p => p.Products).Returns((new Product[] {
-                new Product {Id = 1, Name = "P1", Category="C1"},
-                new Product {Id = 2, Name = "P2", Category="C2"},
-                new Product {Id = 3, Name = "P3", Category="C3"},
-                new Product {Id = 4, Name = "P4", Category="C1"},
-                new Product {Id = 5, Name = "P5",Category="C2"}
-            }).AsQueryable<Product>());
-            HomeController controller = new HomeController(mock.Object);
-            controller.PageSize = 4;
-            Product [] select =((controller.Index("C1",1)).ViewData.Model as ProductListViewModel).Products.ToArray();
-            Assert.Equal(2, select.Length);
-            Assert.True(select[1].Name == "P4");
-
-        }
+      
     }
 }
